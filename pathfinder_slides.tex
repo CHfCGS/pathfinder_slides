@@ -1,4 +1,5 @@
 \documentclass{beamer}
+\usetheme{Berkeley}
 
 \usepackage{default}
 
@@ -28,15 +29,15 @@
 
 \begin{document}
 \frame{\titlepage}
-\begin{frame}
-	\frametitle{Table of contents}
-\end{frame}
 
-\begin{frame}
+\frame{\tableofcontents}
 
+\section{Problem Description}
+\begin{frame}
 	\frametitle{Problem Description}
-
 \end{frame}
+
+\section{Basics}
 \begin{frame}
 	\frametitle{Contraction Hierarchy}
 \end{frame}
@@ -57,6 +58,8 @@
 \begin{frame}
 	\frametitle{CH as RTree}
 \end{frame}
+
+\section{Algorithm}
 
 \begin{frame}
 	\frametitle{Algorithm Overview}
@@ -81,6 +84,8 @@
 \begin{frame}
 	\frametitle{Parallelization}
 \end{frame}
+
+\section{Experiments}
 
 \begin{frame}
 	\frametitle{OnDisk (SSTD)}
