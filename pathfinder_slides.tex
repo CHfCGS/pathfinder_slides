@@ -37,14 +37,23 @@
 	\frametitle{Problem Description}
 	\begin{itemize}
 		\item<1-> road network graph $G(V,E,c)$
-		\item<2->  trajectory data is provided as a collection $\mathcal{T}$
-		\item<3-> $t\in \mathcal{T}$ is a sequence of nodes $\pi=v_0 v_1 \dots v_k$ in  $G$ which can be annotated with timestamps
+		\item<2-> trajectory data is provided as a collection $\mathcal{T}$
+		\item<3-> $t\in \mathcal{T}$ is a sequence of nodes $\pi=v_0 v_1 \dots v_k$ in  $G$ annotated with timestamps $\tau_0, \tau_1, \dots, \tau_k$.
+		\item<4-> \emph{window}-query of the form $[x_l, x_u]\times[y_l, y_u]\times[\tau_l, \tau_u]$
+		\item<5-> goal: Return all intersecting trajectories
 	\end{itemize}
 \end{frame}
 
 \section{Basics}
 \begin{frame}
 	\frametitle{Contraction Hierarchy}
+	\begin{itemize}
+		\item<1-> CH is a augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}.
+		\item<2-> \emph{node contraction}: removes a node $v$ and all of its adjacent edges from the graph
+		\item<3-> To maintain shortest path distances in the graph: Create shortcut $s = (u, w)$ between two adjacent nodes $u,w$ of $v$ if the only shortest path from $u$ to $w$ is the path $uvw$. $c(s) = c(uv) + c(vw)$.
+		\item<4-> Construct CH by successively contracting all nodes
+		\item<5-> final CH data structure is defined as $G(V, E^+, c, l)$ where $E^+$ is the union of $E$ and all shortcuts
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
