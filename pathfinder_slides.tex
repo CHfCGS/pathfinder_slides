@@ -6,6 +6,12 @@
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 \usepackage{listings}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows,%
+	petri,%
+	topaths,
+	calc}%
 
 \newcommand{\TODO}[1]{\noindent\textcolor{green}{\textbf{TODO:} #1}}
 
@@ -172,6 +178,83 @@
 \subsection{\refineEdgeCandidates}
 \begin{frame}
 	\frametitle{\refineEdgeCandidates}
+	Problem: Some of the candidates my be false positives. \pause
+
+	\begin{tikzpicture}
+
+		\SetGraphUnit{1}
+
+		\GraphInit[vstyle=Classic]
+		\tikzset{VertexStyle/.style =
+				{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+		}
+
+		%edge
+		\tikzstyle{EdgeStyle}=[->, color=black]
+		\SetVertexNoLabel
+		\Vertex[x=-0.5,y=2]{source}
+		\Vertex[x=2,y=3.25]{target}
+
+		\Edge(source)(target) {e}
+
+
+		%edgeBox
+
+		\tikzset{VertexStyle/.style =
+				{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
+		}
+		\SetVertexNoLabel
+		\Vertex[x=2,y=2]{6}
+		\Vertex[x=-0.5,y=3.25]{8}
+
+		\tikzstyle{EdgeStyle}=[color=blue]
+		\Edge(source)(6)
+		\Edge(6)(target)
+		\Edge(target)(8)
+		\Edge(8)(source)
+
+
+		%queryBox
+		\Vertex[x=1.25,y=1.75]{1}
+		\Vertex[x=3,y=1.75]{2}
+		\Vertex[x=3,y=2.75]{3}
+		\Vertex[x=1.25,y=2.75]{4}
+
+		\tikzstyle{EdgeStyle}=[color=red]
+		\Edge(1)(2)
+		\Edge(2)(3)
+		\Edge(3)(4)
+		\Edge(4)(1)
+
+		%unpacked
+		\tikzset{VertexStyle/.style =
+				{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+		}
+
+		%possibility1
+		\Vertex[x=0.5,y=3, LabelOut=true, Lpos=-90]{9}
+
+		\tikzstyle{EdgeStyle}=[->, color=green, dashed]
+		\Edge(source)(9)
+		\Edge(9)(target)
+
+		%possibility2
+		\Vertex[x=1.5,y=2.5, LabelOut=true, Lpos=180]{10}
+
+		\tikzstyle{EdgeStyle}=[->, color=brown, dashed]
+		\Edge(source)(10)
+		\Edge(10)(target)
+	\end{tikzpicture}
+	\pause
+
+	Here the black edge $e$ is a candidate because of $PB(e) \cap Q \neq \emptyset$. \pause
+
+	If $e$ bridges \pause
+	\begin{itemize}
+		\item intersecting brown path  $\Rightarrow$ true positive \pause
+		\item non-intersecting green path $\Rightarrow$ false positive \pause
+	\end{itemize} \pause
+	$\Rightarrow$ in doubt, $e$ have to be unpacked recursively
 \end{frame}
 
 \subsection{\getAssociatedTrajectories}
