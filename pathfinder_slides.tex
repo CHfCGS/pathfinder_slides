@@ -3,9 +3,16 @@
 
 \usepackage{default}
 \usepackage{xspace}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{listings}
 
 \newcommand{\TODO}[1]{\noindent\textcolor{green}{\textbf{TODO:} #1}}
 
+\newcommand{\pathfinder}{\textsc{Pathfinder}\xspace}
+\newcommand{\findEdgeCandidates}{FindEdgeCandidates\xspace}
+\newcommand{\refineEdgeCandidates}{RefineEdgeCandidates\xspace}
+\newcommand{\getAssociatedTrajectories}{GetAssociatedTrajectories\xspace}
 \newcommand{\chrep}{CH-representation\xspace}
 
 \title[Pathfinder] % (optional, only for long titles)
@@ -63,16 +70,12 @@
 
 \begin{frame}
 	\frametitle{Shortcut Representation}
+	\framesubtitle{Compression}
 	\begin{figure}
 		\TODO{step by step picture}
 		\includegraphics[width=.76\columnwidth]{images/toch}
 		\caption{Original path (black) and derivation of its \chrep (bold blue) via repeated shortcut substitution. $y$-coordinate corresponds to CH level.}
 	\end{figure}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Shortcut Representation}
-	\framesubtitle{Compression}
 \end{frame}
 
 \begin{frame}
@@ -83,6 +86,20 @@
 
 \begin{frame}
 	\frametitle{Algorithm Overview}
+	Inverted Index: Associate a trajectory with all edges of its \chrep in $E^+$.
+	\begin{algorithm}[H]
+		{\small
+			\caption{Spatial \pathfinder Algorithm}
+			\begin{algorithmic}[1]
+				\Procedure{PathfinderQuery}{$Q$} \pause
+				\State $E_O \gets \Call{\findEdgeCandidates}{Q}$ \label{line:edge_revrieval} \pause
+				\State $E_r \gets \Call{\refineEdgeCandidates}{Q, E_O}$ \pause
+				\State \Return $\Call{\getAssociatedTrajectories}{E_r}$
+				\EndProcedure
+			\end{algorithmic}
+			\label{alg:spatial_pathfinder}
+		}
+	\end{algorithm}
 \end{frame}
 
 \begin{frame}
