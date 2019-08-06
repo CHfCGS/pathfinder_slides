@@ -42,7 +42,11 @@
 \begin{document}
 \frame{\titlepage}
 
-\frame{\tableofcontents}
+\frame{\tableofcontents[
+		currentsection,
+		currentsubsection,
+		subsectionstyle=show/shaded/hide
+	]}
 
 \section{Problem Description}
 \begin{frame}
@@ -102,31 +106,39 @@
 	\end{algorithm}
 \end{frame}
 
+\subsection{\findEdgeCandidates}
 \begin{frame}
 	\frametitle{FindEdgeCandidates}
 \end{frame}
 
+\subsection{\refineEdgeCandidates}
 \begin{frame}
 	\frametitle{RefineEdgeCandidates}
 \end{frame}
 
+\subsection{\getAssociatedTrajectories}
 \begin{frame}
 	\frametitle{GetAssociatedTrajectories}
 \end{frame}
 
+\section{Extensions}
+
+\subsection{Time frame quries}
 \begin{frame}
 	\frametitle{TimeFrameQueries}
 \end{frame}
 
+\subsection{Parallelization}
 \begin{frame}
 	\frametitle{Parallelization}
 \end{frame}
 
-\section{Experiments}
-
+\subsection{On disk storage}
 \begin{frame}
 	\frametitle{OnDisk (SSTD)}
 \end{frame}
+
+\section{Experiments}
 
 \begin{frame}
 	\frametitle{Experiments}
