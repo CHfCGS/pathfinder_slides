@@ -108,17 +108,75 @@
 
 \subsection{\findEdgeCandidates}
 \begin{frame}
-	\frametitle{FindEdgeCandidates}
+	\frametitle{\findEdgeCandidates}
+	\framesubtitle{Path box}
+	\emph{Path box} $PB(e)$: Bounding box for the path that an edge $e$ represents.
+	\TODO{illustration}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\findEdgeCandidates}
+	\framesubtitle{Downgraph box}
+	\TODO{mach grünes kleiner}
+	\emph{Downgraph box} $DB(v)$: Bounding box of all nodes that are reachable from a node $v$ on a down-path (only visiting nodes of decreasing CH-level)
+	\includegraphics[width=.76\columnwidth]{images/downgraphBox}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\findEdgeCandidates}
+	\TODO{mach grünes kleiner}
+	\begin{algorithm}[H]
+		{\small
+			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
+			\begin{algorithmic}[1]
+				\Procedure{\findEdgeCandidates}{$Q$}
+				\State $V_T \gets \Call{FetchTopNodes}{Q}$
+				\State $E_O \gets \emptyset$
+				\For {$v \in V_T$}
+				\State $E_O \gets E_O \cup \Call{FindCandidatesForNode}{v, Q}$
+				\EndFor
+				\State \Return $E_O$
+				\vspace{0.2cm}
+				\EndProcedure
+			\end{algorithmic}
+		}
+	\end{algorithm}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\findEdgeCandidates}
+	\TODO{mach grünes kleiner}
+	\begin{algorithm}[H]
+		{\small
+			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
+			\begin{algorithmic}[1]
+				\Procedure{FindCandidatesForNode}{$v, Q$}
+				\State $C \gets \emptyset$
+				\For {$e \in \text{down edges of $v$}$}
+				\If {$PB(e) \cap Q \neq \emptyset$}
+				\State $C \gets C \cup \{e\}$
+				\EndIf
+				\State $v_l \gets \text{lower node of $e$}$
+				\If {$DB(v_l) \cap Q \neq \emptyset$}
+				\State $C \gets C \cup \Call{FindCandidatesForNode}{v_l, Q}$
+				\EndIf
+				\EndFor
+				\State \Return $C$
+				\EndProcedure
+			\end{algorithmic}
+		}
+	\end{algorithm}
+	\includegraphics[width=.76\columnwidth]{images/downgraphBox}
 \end{frame}
 
 \subsection{\refineEdgeCandidates}
 \begin{frame}
-	\frametitle{RefineEdgeCandidates}
+	\frametitle{\refineEdgeCandidates}
 \end{frame}
 
 \subsection{\getAssociatedTrajectories}
 \begin{frame}
-	\frametitle{GetAssociatedTrajectories}
+	\frametitle{\getAssociatedTrajectories}
 \end{frame}
 
 \section{Extensions}
