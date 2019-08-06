@@ -267,9 +267,16 @@
 
 \section{Extensions}
 
-\subsection{Time frame quries}
+\subsection{Time quries}
 \begin{frame}
-	\frametitle{TimeFrameQueries}
+	\frametitle{Time Queries}
+	Two types of time queries: \pause
+	\begin{itemize}
+		\item Time frame queries $[\tau_l, \tau_u]$ \pause
+		\item Time frame queries for periodic events, e.g. Friday Evening \pause
+	\end{itemize}
+	Are processed efficiently by interval trees at each edge \pause
+	Can be combined with each other and the spatial query.
 \end{frame}
 
 \subsection{Parallelization}
