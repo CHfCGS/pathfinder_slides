@@ -415,10 +415,33 @@
 			25km                      & 0.817 & 0.628 & 0.270 & 0.093 & 0.041 \\
 			100km                     & 5.630 & 4.381 & 1.866 & 0.609 & 0.201 \\
 			400km                     & 6.177 & 4.959 & 2.124 & 0.685 & 0.222 \\
-			$\infty$ km               & 6.889 & 4.773 & 1.882 & 0.608 & 0.211 \\
+			100000km                  & 6.889 & 4.773 & 1.882 & 0.608 & 0.211 \\
 			\hline
 		\end{tabular}
 	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Experiments}
+	\framesubtitle{Time per trajectory}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{graphics/time_per_trajectory.png}
+		\caption{Time per trajectory in the output for $|\traj{eu}{synth}| = 10^7$ with 24 threads for spatial only query.
+			%\STEFAN{So vorgestellt? Das gleiche noch für ger, real? Ist interessanter als ich gedacht habe.  Dass die 25km als einzige wieder hochgeht, hätte ich nicht gedacht.  Das liegt wahrscheinlich daran, dass da so wenige Trajektorien drinliegen und die Schritte b) und c) trotzdem relativ viel kosten.}
+		}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Experiments}
+	\framesubtitle{Parallelization}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{graphics/normalized_thread_times.png}
+		\caption{Table \ref{tab:europe_10m_threadparam_nekton} as a plot with reported times normalized by multiplication with the number of used threads.}
+		\label{fig:normalized_thread_times}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
