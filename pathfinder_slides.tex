@@ -81,11 +81,11 @@
 \begin{frame}
 	\frametitle{Contraction Hierarchy}
 	\begin{itemize}
-		\item<1-> CH is a augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}.
-		\item<2-> \emph{node contraction}: removes a node $v$ and all of its adjacent edges from the graph
-		\item<3-> To maintain shortest path distances in the graph: Create shortcut $s = (u, w)$ between two adjacent nodes $u,w$ of $v$ if the only shortest path from $u$ to $w$ is the path $uvw$. $c(s) = c(uv) + c(vw)$.
-		\item<4-> Construct CH by successively contracting all nodes
-		\item<5-> final CH data structure is defined as $G(V, E^+, c, l)$ where $E^+$ is the union of $E$ and all shortcuts
+		\item Contraction Hierarchy (CH) is a augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}. \pause
+		\item \emph{node contraction}: Firstly, remove a node $v$ and all of its adjacent edges from the graph. \pause
+		      Then create shortcut $s = (u, w)$ between two adjacent nodes $u,w$ of $v$ if the only shortest path from $u$ to $w$ is the path $uvw$. $c(s) = c(uv) + c(vw)$.
+		\item Construct CH by successively contracting all nodes. \pause
+		\item final CH data structure is defined as $G(V, E^+, c, l)$ where $E^+$ is the union of $E$ and all shortcuts.
 	\end{itemize}
 \end{frame}
 
@@ -97,10 +97,6 @@
 		\includegraphics[width=.76\columnwidth]{images/toch}
 		\caption{Original path (black) and derivation of its \chrep (bold blue) via repeated shortcut substitution. $y$-coordinate corresponds to CH level.}
 	\end{figure}
-\end{frame}
-
-\begin{frame}
-	\frametitle{CH as RTree}
 \end{frame}
 
 \section{Algorithm}
@@ -127,8 +123,9 @@
 \begin{frame}
 	\frametitle{\findEdgeCandidates}
 	\framesubtitle{Path box}
-	\emph{Path box} $PB(e)$: Bounding box for the path that an edge $e$ represents.
-	\TODO{illustration}
+	\emph{Path box} $PB(e)$: Bounding box for the path that an edge $e$ represents:
+
+	\includegraphics[width=.5\columnwidth]{images/pathBox}
 \end{frame}
 
 \begin{frame}
