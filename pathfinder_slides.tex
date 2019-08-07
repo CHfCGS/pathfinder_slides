@@ -131,14 +131,12 @@
 \begin{frame}
 	\frametitle{\findEdgeCandidates}
 	\framesubtitle{Downgraph box}
-	\TODO{mach grünes kleiner}
 	\emph{Downgraph box} $DB(v)$: Bounding box of all nodes that are reachable from a node $v$ on a down-path (only visiting nodes of decreasing CH-level)
 	\includegraphics[width=.76\columnwidth]{images/downgraphBox}
 \end{frame}
 
 \begin{frame}
 	\frametitle{\findEdgeCandidates}
-	\TODO{mach grünes kleiner}
 	\begin{algorithm}[H]
 		{\small
 			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
@@ -159,7 +157,6 @@
 
 \begin{frame}
 	\frametitle{\findEdgeCandidates}
-	\TODO{mach grünes kleiner}
 	\begin{algorithm}[H]
 		{\small
 			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
@@ -278,14 +275,20 @@
 \subsection{Time queries}
 \begin{frame}
 	\frametitle{Time queries}
-	Two types of time queries: \pause
 	\begin{itemize}
-		\item Time frame queries $[\tau_l, \tau_u]$ \pause
-		\item Time slice queries for periodic events, e.g. Friday Evening \pause
+
+		\item	Two types of time queries: \pause
+		      \begin{itemize}
+			      \item Time frame queries $[\tau_l, \tau_u]$ \pause
+			      \item Time slice queries for periodic events, e.g. Friday Evening \pause
+		      \end{itemize}
+		\item	Are processed efficiently by interval trees at each edge. \pause
+
+		\item Can be combined with each other and the spatial query. \pause
+
+		\item	Analogues to $PB(e)$ and $DB(v)$ are used, but the compression of time data is lossy.
+		      content...
 	\end{itemize}
-	Are processed efficiently by interval trees at each edge. \pause
-	Can be combined with each other and the spatial query. \pause
-	Analogues to $PB(e)$ and $DB(v)$ are used, but the compression of time data is lossy.
 \end{frame}
 
 \subsection{Parallelization}
