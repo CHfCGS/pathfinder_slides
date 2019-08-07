@@ -335,24 +335,6 @@
 \end{frame}
 
 
-\begin{table}
-	{
-		\caption[Messungen$germany\_real\_1_naive_variants_threadripper$]{Timings in seconds for different sized sets $\traj{ger}{synth}$, rectangle size $\frac{1}{32}$, spatial only queries, single thread.
-			%Due to the very slow naive approaches this experiment was conducted by averaging only over 10 spatial  queries with rectangle size 1/32 and $d=\SI{100}{km}$ for the generated trajectories.
-			% The columns are $|\traj{ger}{synth}|$.
-		}
-		\begin{tabular}{|l||r|r|r|}
-			\hline
-			set size          & $100,000$ & $1 M$    & $10 M$
-			\\ \hline
-			linear scan       & 156.237   & 1568.022 & 15884.508 \\
-			inverted index CH & 69.577    & 68.403   & 71.550    \\
-			\pathfinder       & 0.029     & 0.107    & 0.415     \\
-			\hline
-		\end{tabular}
-	}
-\end{table}
-
 \begin{frame}
 	\frametitle{Experiments}
 	\framesubtitle{Spatial queries}
@@ -396,64 +378,6 @@
 		\caption{Table \ref{tab:europe_10m_threadparam_nekton} as a plot with reported times normalized by multiplication with the number of used threads.}
 		\label{fig:normalized_thread_times}
 	\end{figure}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Experiments}
-	\framesubtitle{Time Queries}
-	\begin{table}
-		{
-			\caption[Messungen$europe\_10\_24_time_variants_nekton$]{Times in seconds for $|\traj{eu}{synth}|=10^7$ with $d=\SI{100}{km}$ and 32 threads for different constraints.}
-			\begin{tabular}{|l||c|c|c|c|c|}
-				\hline
-				                   & 1/2   & 1/4   & 1/8   & 1/16  & 1/32
-				\\ \hline
-				pure spatial       & 5.630 & 4.381 & 1.866 & 0.609 & 0.201 \\
-				intervals          & 1.439 & 1.095 & 0.532 & 0.174 & 0.076 \\
-				slices             & 4.273 & 3.412 & 1.449 & 0.461 & 0.157 \\
-				intervals + slices & 1.447 & 1.059 & 0.520 & 0.168 & 0.068 \\
-				\hline
-			\end{tabular}
-		}
-	\end{table}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Experiments}
-	\framesubtitle{Quality loss due to temporal resolution}
-	\begin{table}
-		{
-		\caption{Size of result set $\mathcal{T}_{\text{out}}$: quality loss due to decrease of temporal resolution (averaged over 2000 queries).}\label{tab:temporalQualityLoss}
-		\begin{tabular}{|l||r|r|r|r|r|}
-			\hline
-			                                                & 1/2      & 1/4      & 1/8     & 1/16    & 1/32   \\
-			\hline
-			uncompressed                                    & 959.8600 & 313.8005 & 98.2340 & 28.5760 & 9.6105 \\
-			compressed                                      & 960.3985 & 314.2435 & 98.4980 & 28.7365 & 9.6890 \\
-			$\frac{\text{uncompressed}}{\text{compressed}}$ & 0.999    & 0.998    & 0.997   & 0.994   & 0.991  \\
-			\hline
-		\end{tabular}
-		}
-	\end{table}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Experiments}
-	\framesubtitle{On Disk Storage}
-	\begin{table}
-		{
-			\caption{On disk and RAM results for step \getAssociatedTrajectories and $|\mathcal{T}_{out}|$, single thread.}
-			\begin{tabular}{|l||r|r|r|r|r|}
-				\hline
-				                          & 1/2   & 1/4   & 1/8  & 1/16 & 1/32 \\
-				\hline
-				On disk (\SI{}{s})        & 36.33 & 22.60 & 9.35 & 3.86 & 1.53 \\
-				RAM (\SI{}{s})            & 19.20 & 10.67 & 3.56 & 1.11 & 0.26 \\
-				$|\mathcal{T}_{out}|$ (M) & 16.49 & 12.46 & 6.80 & 3.46 & 1.42 \\
-				\hline
-			\end{tabular}
-		}
-	\end{table}
 \end{frame}
 
 \begin{frame}
