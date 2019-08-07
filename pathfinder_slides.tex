@@ -12,6 +12,7 @@
 	petri,%
 	topaths,
 	calc}%
+\usepackage{siunitx}
 
 \newcommand{\TODO}[1]{\noindent\textcolor{green}{\textbf{TODO:} #1}}
 
@@ -291,19 +292,45 @@
 
 \subsection{On disk storage}
 \begin{frame}
-	\frametitle{OnDisk (SSTD)}
+	\frametitle{On disk storage}
+	Amount of trajectory data can be too much if RAM is limited \pause
+
+	$\Rightarrow$ Use the library STXXL to store the trajectory data on disk.
 \end{frame}
 
 \section{Experiments}
 
 \begin{frame}
 	\frametitle{Experiments}
-	\framesubtitle{Hardware}
+	\framesubtitle{Technology}
+	\pathfinder was implemented in C++. \pause
+	\medskip
+
+	Experiments were conducted on two machines:
+	\begin{enumerate}
+		\item AMD Ryzen Threadripper 1950X (16-Core), 128 GB RAM and a 512GB Toshiba OCZ RD400 NVMe SSD (\SI{2.6}{GB}/s)  %3.4 GHz turbo: 4GHz
+		\item Intel(R) Xeon(R) CPU E5-2650 v4 (24-Core), 768 GB RAM %turbo 2.9GHz
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Experiments}
-	\framesubtitle{Data}
+	\framesubtitle{Graph Data}
+	\begin{table}
+		{
+			\caption{Characteristics of considered network graphs ($M=10^6$).}
+			\begin{tabular}{|l|rr|}
+				\hline
+				                           & Germany  & Europe
+				\\ \hline
+				\# nodes                   & $57.4M$  & $437.4M$  \\
+				\# edges (original)        & $121.7M$ & $902.1M$  \\
+				\# edges (CH)              & $248.4M$ & $1694.2M$ \\
+				CH construction time (min) & 16       & 125       \\
+				\hline
+			\end{tabular}
+		}
+	\end{table}
 \end{frame}
 
 \begin{frame}
