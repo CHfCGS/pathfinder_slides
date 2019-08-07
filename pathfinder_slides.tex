@@ -81,7 +81,7 @@
 \begin{frame}
 	\frametitle{Contraction Hierarchy}
 	\begin{itemize}
-		\item Contraction Hierarchy (CH) is a augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}. \pause
+		\item Contraction Hierarchy (CH) is an augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}. \pause
 		\item \emph{node contraction}: Firstly, remove a node $v$ and all of its adjacent edges from the graph. \pause
 		      Then create shortcut $s = (u, w)$ between two adjacent nodes $u,w$ of $v$ if the only shortest path from $u$ to $w$ is the path $uvw$. $c(s) = c(uv) + c(vw)$.
 		\item Construct CH by successively contracting all nodes. \pause
@@ -93,7 +93,6 @@
 	\frametitle{Shortcut Representation}
 	\framesubtitle{Compression}
 	\begin{figure}
-		\TODO{step by step picture}
 		\includegraphics[width=.76\columnwidth]{images/toch}
 		\caption{Original path (black) and derivation of its \chrep (bold blue) via repeated shortcut substitution. $y$-coordinate corresponds to CH level.}
 	\end{figure}
@@ -105,6 +104,7 @@
 	\frametitle{Algorithm Overview}
 	Inverted Index: Associate a trajectory with all edges of its \chrep in $E^+$.
 	\begin{algorithm}[H]
+		\renewcommand{\thealgorithm}{}
 		{\small
 			\caption{Spatial \pathfinder Algorithm}
 			\begin{algorithmic}[1]
@@ -138,6 +138,7 @@
 \begin{frame}
 	\frametitle{\findEdgeCandidates}
 	\begin{algorithm}[H]
+		\renewcommand{\thealgorithm}{}
 		{\small
 			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
 			\begin{algorithmic}[1]
@@ -158,6 +159,7 @@
 \begin{frame}
 	\frametitle{\findEdgeCandidates}
 	\begin{algorithm}[H]
+		\renewcommand{\thealgorithm}{}
 		{\small
 			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
 			\begin{algorithmic}[1]
