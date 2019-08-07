@@ -275,13 +275,18 @@
 		\item Time frame queries $[\tau_l, \tau_u]$ \pause
 		\item Time frame queries for periodic events, e.g. Friday Evening \pause
 	\end{itemize}
-	Are processed efficiently by interval trees at each edge \pause
+	Are processed efficiently by interval trees at each edge. \pause
 	Can be combined with each other and the spatial query.
 \end{frame}
 
 \subsection{Parallelization}
 \begin{frame}
 	\frametitle{Parallelization}
+	\begin{itemize}
+		\item<1-> Top down CH-traversal in \findEdgeCandidates is a DAG \pause $\Rightarrow$ we can identify a tree such that the traversal can be efficiently parallelized.
+		\item<2-> Straightforward to parallelize \refineEdgeCandidates.
+		\item<3-> \getAssociatedTrajectories can be parallelized too where the results are finally merged.
+	\end{itemize}
 \end{frame}
 
 \subsection{On disk storage}
