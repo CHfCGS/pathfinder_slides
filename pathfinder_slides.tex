@@ -276,10 +276,11 @@
 	Two types of time queries: \pause
 	\begin{itemize}
 		\item Time frame queries $[\tau_l, \tau_u]$ \pause
-		\item Time frame queries for periodic events, e.g. Friday Evening \pause
+		\item Time slice queries for periodic events, e.g. Friday Evening \pause
 	\end{itemize}
 	Are processed efficiently by interval trees at each edge. \pause
-	Can be combined with each other and the spatial query.
+	Can be combined with each other and the spatial query. \pause
+	Analogues to $PB(e)$ and $DB(v)$ are used, but the compression of time data is lossy.
 \end{frame}
 
 \subsection{Parallelization}
@@ -355,14 +356,56 @@
 	\end{table}
 \end{frame}
 
+
 \begin{frame}
 	\frametitle{Experiments}
-	\framesubtitle{Evaluations compression}
+	\framesubtitle{Index Setup}
+	\begin{table}
+		{
+			\caption{Setting up the auxiliary data structures (CH construction and compression excluded). $|\traj{eu}{synth}| = 10^7$, $d=\SI{e5}{km}$.
+			}
+			\begin{tabular}{|c|cc|}
+				\hline
+				           & $\traj{ger}{real}$ & $\traj{eu}{synth}$ \\
+				\hline
+				setup time & 349s               & 5040s              \\
+				total size & 126GB              & 485GB              \\
+				\hline
+			\end{tabular}
+		}
+
+		%init is sum over init() times without partition paths
+		%rupp@threadripper:~/osm/benchmarks/germany/papertimes/timeVariants$ vim 16T_results_
+		%ruppts@nekton:~/osm/pathfinder/benchmarks/europe/papertimes/timevariants$ vim 10m_24T_results_
+	\end{table}
 \end{frame}
+
+\begin{table}
+	{
+		\caption[Messungen$germany\_real\_1_naive_variants_threadripper$]{Timings in seconds for different sized sets $\traj{ger}{synth}$, rectangle size $\frac{1}{32}$, spatial only queries, single thread.
+			%Due to the very slow naive approaches this experiment was conducted by averaging only over 10 spatial  queries with rectangle size 1/32 and $d=\SI{100}{km}$ for the generated trajectories.
+			% The columns are $|\traj{ger}{synth}|$.
+		}
+		\begin{tabular}{|l||r|r|r|}
+			\hline
+			set size          & $100,000$ & $1 M$    & $10 M$
+			\\ \hline
+			linear scan       & 156.237   & 1568.022 & 15884.508 \\
+			inverted index CH & 69.577    & 68.403   & 71.550    \\
+			\pathfinder       & 0.029     & 0.107    & 0.415     \\
+			\hline
+		\end{tabular}
+	}
+\end{table}
 
 \begin{frame}
 	\frametitle{Experiments}
 	\framesubtitle{Evaluations retrieval}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Experiments}
+	\framesubtitle{Quality loss due to temporal resolution}
 \end{frame}
 % etc
 \end{document}
