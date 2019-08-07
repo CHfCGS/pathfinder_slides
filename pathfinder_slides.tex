@@ -254,7 +254,14 @@
 
 \section{Extensions}
 
-%\subsection{Time queries}
+\begin{frame}
+	\frametitle{Optimization}
+	\begin{itemize}
+		\item<1-> All 3 substeps can be efficiently parallelized.
+		\item<2-> Trajectory data can be stored on disk instead of RAM.
+	\end{itemize}
+\end{frame}
+
 \begin{frame}
 	\frametitle{Time queries}
 	\begin{itemize}
@@ -269,26 +276,7 @@
 		\item Can be combined with each other and the spatial query. \pause
 
 		\item	Analogues to $PB(e)$ and $DB(v)$ are used, but the compression of time data is lossy.
-		      content...
 	\end{itemize}
-\end{frame}
-
-%\subsection{Parallelization}
-\begin{frame}
-	\frametitle{Parallelization}
-	\begin{itemize}
-		\item<1-> Top down CH-traversal in \findEdgeCandidates is a DAG \pause $\Rightarrow$ we can identify a tree such that the traversal can be efficiently parallelized.
-		\item<2-> Straightforward to parallelize \refineEdgeCandidates.
-		\item<3-> \getAssociatedTrajectories can be parallelized too where the results are finally merged.
-	\end{itemize}
-\end{frame}
-
-%\subsection{On disk storage}
-\begin{frame}
-	\frametitle{On disk storage}
-	Amount of trajectory data can be too much if RAM is limited \pause
-
-	$\Rightarrow$ Use the library STXXL to store the trajectory data on disk.
 \end{frame}
 
 \section{Experiments}
@@ -299,9 +287,9 @@
 	\pathfinder was implemented in C++. \pause
 	\medskip
 
-	Experiments were conducted on two machines:
+	Experiments were conducted on two machines: \pause
 	\begin{enumerate}
-		\item AMD Ryzen Threadripper 1950X (16-Core), 128 GB RAM and a 512GB Toshiba OCZ RD400 NVMe SSD (\SI{2.6}{GB}/s)  %3.4 GHz turbo: 4GHz
+		\item AMD Ryzen Threadripper 1950X (16-Core), 128 GB RAM and a 512GB Toshiba OCZ RD400 NVMe SSD (\SI{2.6}{GB}/s) \pause %3.4 GHz turbo: 4GHz
 		\item Intel(R) Xeon(R) CPU E5-2650 v4 (24-Core), 768 GB RAM %turbo 2.9GHz
 	\end{enumerate}
 \end{frame}
@@ -311,15 +299,15 @@
 	\framesubtitle{Graph data}
 	\begin{table}
 		{
-			\caption{Characteristics of network graphs, based on Open street Map(OSM)}
+			\caption{Characteristics of network graphs, based on Open Street Map(OSM)}
 			\begin{tabular}{|l|rr|}
 				\hline
-				                           & Germany  & Europe
+				                    & Germany  & Europe
 				\\ \hline
-				\# nodes                   & $57.4M$  & $437.4M$  \\
-				\# edges (original)        & $121.7M$ & $902.1M$  \\
-				\# edges (CH)              & $248.4M$ & $1694.2M$ \\
-				CH construction time (min) & 16       & 125       \\
+				\# nodes            & $57.4M$  & $437.4M$ \\
+				\# edges (original) & $121.7M$ & $902.1M$ \\
+				%\# edges (CH)              & $248.4M$ & $1694.2M$ \\
+				%CH construction time (min) & 16       & 125       \\
 				\hline
 			\end{tabular}
 		}
@@ -332,43 +320,20 @@
 	Dataset $\traj{ger}{real}$ of 370k real-world trajectories compiled from OSM-traces.
 	\begin{table}
 		{
-			\begin{tabular}{|l|rrr|}
+			\begin{tabular}{|l|r|}
 				\hline
-				                            & $\varnothing$ & $\sigma$ & max.  \\
+				                            & $\varnothing$ \\
 				\hline
-				\# shortest paths           & 11            & 16.6     & 1118  \\
-				length (km)                 & 14.78         & 34.6     & 1928  \\
-				original length (\#edges)   & 347           & 654      & 46112 \\
-				compressed length (\#edges) & 37            & 56       & 3726  \\
+				\# shortest paths           & 11            \\
+				length (km)                 & 14.78         \\
+				original length (\#edges)   & 347           \\
+				compressed length (\#edges) & 37            \\
 				\hline
 			\end{tabular}
 		}
 	\end{table}
 \end{frame}
 
-
-\begin{frame}
-	\frametitle{Experiments}
-	\framesubtitle{Index Setup}
-	\begin{table}
-		{
-			\caption{Setting up the auxiliary data structures (CH construction and compression excluded). $|\traj{eu}{synth}| = 10^7$, $d=\SI{e5}{km}$.
-			}
-			\begin{tabular}{|c|cc|}
-				\hline
-				           & $\traj{ger}{real}$ & $\traj{eu}{synth}$ \\
-				\hline
-				setup time & 349s               & 5040s              \\
-				total size & 126GB              & 485GB              \\
-				\hline
-			\end{tabular}
-		}
-
-		%init is sum over init() times without partition paths
-		%rupp@threadripper:~/osm/benchmarks/germany/papertimes/timeVariants$ vim 16T_results_
-		%ruppts@nekton:~/osm/pathfinder/benchmarks/europe/papertimes/timevariants$ vim 10m_24T_results_
-	\end{table}
-\end{frame}
 
 \begin{table}
 	{
