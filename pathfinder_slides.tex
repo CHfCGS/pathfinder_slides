@@ -83,14 +83,15 @@
 	\begin{itemize}
 		\item Contraction Hierarchy (CH) is an augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}. \pause
 		\item \emph{node contraction}: Firstly, remove a node $v$ and all of its adjacent edges from the graph. \pause
-		      Then create shortcut $s = (u, w)$ between two adjacent nodes $u,w$ of $v$ if the only shortest path from $u$ to $w$ is the path $uvw$. $c(s) = c(uv) + c(vw)$.
+
+		      Then create shortcut $s = (u, w)$ between two adjacent nodes $u,w$ of $v$ if the only shortest path from $u$ to $w$ is the path $uvw$. $c(s) = c(uv) + c(vw)$. \pause
 		\item Construct CH by successively contracting all nodes. \pause
 		\item final CH data structure is defined as $G(V, E^+, c, l)$ where $E^+$ is the union of $E$ and all shortcuts.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Shortcut Representation}
+	\frametitle{\chrep}
 	\framesubtitle{Compression}
 	\begin{figure}
 		\includegraphics[width=.76\columnwidth]{images/toch}
@@ -102,7 +103,7 @@
 
 \begin{frame}
 	\frametitle{Algorithm Overview}
-	Inverted Index: Associate a trajectory with all edges of its \chrep in $E^+$.
+	Inverted Index: Associate a trajectory with all edges of its \chrep in $E^+$. \pause
 	\begin{algorithm}[H]
 		\renewcommand{\thealgorithm}{}
 		{\small
@@ -133,27 +134,6 @@
 	\framesubtitle{Downgraph box}
 	\emph{Downgraph box} $DB(v)$: Bounding box of all nodes that are reachable from a node $v$ on a down-path (only visiting nodes of decreasing CH-level)
 	\includegraphics[width=.76\columnwidth]{images/downgraphBox}
-\end{frame}
-
-\begin{frame}
-	\frametitle{\findEdgeCandidates}
-	\begin{algorithm}[H]
-		\renewcommand{\thealgorithm}{}
-		{\small
-			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
-			\begin{algorithmic}[1]
-				\Procedure{\findEdgeCandidates}{$Q$}
-				\State $V_T \gets \Call{FetchTopNodes}{Q}$
-				\State $E_O \gets \emptyset$
-				\For {$v \in V_T$}
-				\State $E_O \gets E_O \cup \Call{FindCandidatesForNode}{v, Q}$
-				\EndFor
-				\State \Return $E_O$
-				\vspace{0.2cm}
-				\EndProcedure
-			\end{algorithmic}
-		}
-	\end{algorithm}
 \end{frame}
 
 \begin{frame}
