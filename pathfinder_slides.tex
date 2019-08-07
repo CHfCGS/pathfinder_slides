@@ -401,7 +401,7 @@
 
 \begin{frame}
 	\frametitle{Experiments}
-	\framesubtitle{Time queries}
+	\framesubtitle{Spatial queries}
 	\begin{table}
 		\caption[Messungen$europe\_10\_24_spatial_nekton$]{Measurements  for $|\traj{eu}{synth}| = 10^7$ with 24 threads for spatial only queries.}
 
@@ -423,26 +423,7 @@
 
 \begin{frame}
 	\frametitle{Experiments}
-	\framesubtitle{Quality loss due to temporal resolution}
-	\begin{table}
-		{
-		\caption{Size of result set $\mathcal{T}_{\text{out}}$: quality loss due to decrease of temporal resolution (averaged over 2000 queries).}\label{tab:temporalQualityLoss}
-		\begin{tabular}{|l||r|r|r|r|r|}
-			\hline
-			                                                & 1/2      & 1/4      & 1/8     & 1/16    & 1/32   \\
-			\hline
-			uncompressed                                    & 959.8600 & 313.8005 & 98.2340 & 28.5760 & 9.6105 \\
-			compressed                                      & 960.3985 & 314.2435 & 98.4980 & 28.7365 & 9.6890 \\
-			$\frac{\text{uncompressed}}{\text{compressed}}$ & 0.999    & 0.998    & 0.997   & 0.994   & 0.991  \\
-			\hline
-		\end{tabular}
-		}
-	\end{table}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Experiments}
-	\framesubtitle{On Disk Storage}
+	\framesubtitle{Time Queries}
 	\begin{table}
 		{
 			\caption[Messungen$europe\_10\_24_time_variants_nekton$]{Times in seconds for $|\traj{eu}{synth}|=10^7$ with $d=\SI{100}{km}$ and 32 threads for different constraints.}
@@ -456,6 +437,25 @@
 				intervals + slices & 1.447 & 1.059 & 0.520 & 0.168 & 0.068 \\
 				\hline
 			\end{tabular}
+		}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Experiments}
+	\framesubtitle{Quality loss due to temporal resolution}
+	\begin{table}
+		{
+		\caption{Size of result set $\mathcal{T}_{\text{out}}$: quality loss due to decrease of temporal resolution (averaged over 2000 queries).}\label{tab:temporalQualityLoss}
+		\begin{tabular}{|l||r|r|r|r|r|}
+			\hline
+			                                                & 1/2      & 1/4      & 1/8     & 1/16    & 1/32   \\
+			\hline
+			uncompressed                                    & 959.8600 & 313.8005 & 98.2340 & 28.5760 & 9.6105 \\
+			compressed                                      & 960.3985 & 314.2435 & 98.4980 & 28.7365 & 9.6890 \\
+			$\frac{\text{uncompressed}}{\text{compressed}}$ & 0.999    & 0.998    & 0.997   & 0.994   & 0.991  \\
+			\hline
+		\end{tabular}
 		}
 	\end{table}
 \end{frame}
