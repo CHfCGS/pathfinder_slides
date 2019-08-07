@@ -120,7 +120,7 @@
 	\end{algorithm}
 \end{frame}
 
-\subsection{\findEdgeCandidates}
+%\subsection{\findEdgeCandidates}
 \begin{frame}
 	\frametitle{\findEdgeCandidates}
 	\framesubtitle{Path box}
@@ -159,10 +159,10 @@
 			\end{algorithmic}
 		}
 	\end{algorithm}
-	\includegraphics[width=.45\columnwidth]{images/downgraphBox}
+	\includegraphics[width=.45\columnwidth]{images/containedDowngraphBox}
 \end{frame}
 
-\subsection{\refineEdgeCandidates}
+%\subsection{\refineEdgeCandidates}
 \begin{frame}
 	\frametitle{\refineEdgeCandidates}
 	Problem: Some of the candidates my be false positives. \pause
@@ -244,17 +244,17 @@
 	$\Rightarrow$ in doubt, $e$ have to be unpacked recursively
 \end{frame}
 
-\subsection{\getAssociatedTrajectories}
-\begin{frame}
-	\frametitle{\getAssociatedTrajectories}
-	Finally collect all trajectories associated with the remaining candidate edges, i.e. $t \in \bigcup_{e \in E_r} \mathcal{T}_e $.\pause
-
-	Removal of duplicates is also required, as trajectories are associated with more than one edge.
-\end{frame}
+%\subsection{\getAssociatedTrajectories}
+%\begin{frame}
+%	\frametitle{\getAssociatedTrajectories}
+%	Finally collect all trajectories associated with the remaining candidate edges, i.e. $t \in \bigcup_{e \in E_r} \mathcal{T}_e $.\pause
+%
+%	Removal of duplicates is also required, as trajectories are associated with more than one edge.
+%\end{frame}
 
 \section{Extensions}
 
-\subsection{Time queries}
+%\subsection{Time queries}
 \begin{frame}
 	\frametitle{Time queries}
 	\begin{itemize}
@@ -273,7 +273,7 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{Parallelization}
+%\subsection{Parallelization}
 \begin{frame}
 	\frametitle{Parallelization}
 	\begin{itemize}
@@ -283,7 +283,7 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{On disk storage}
+%\subsection{On disk storage}
 \begin{frame}
 	\frametitle{On disk storage}
 	Amount of trajectory data can be too much if RAM is limited \pause
