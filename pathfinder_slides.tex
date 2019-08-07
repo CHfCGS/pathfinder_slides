@@ -22,6 +22,8 @@
 \newcommand{\getAssociatedTrajectories}{GetAssociatedTrajectories\xspace}
 \newcommand{\chrep}{CH-representation\xspace}
 
+\newcommand{\traj}[2]{\mathcal{T}_{\text{#1},\text{#2}}}
+
 \title[Pathfinder] % (optional, only for long titles)
 {PATHFINDER}
 \subtitle{Storage and Indexing of Massive Trajectory Sets}
@@ -268,9 +270,9 @@
 
 \section{Extensions}
 
-\subsection{Time quries}
+\subsection{Time queries}
 \begin{frame}
-	\frametitle{Time Queries}
+	\frametitle{Time queries}
 	Two types of time queries: \pause
 	\begin{itemize}
 		\item Time frame queries $[\tau_l, \tau_u]$ \pause
@@ -315,10 +317,10 @@
 
 \begin{frame}
 	\frametitle{Experiments}
-	\framesubtitle{Graph Data}
+	\framesubtitle{Graph data}
 	\begin{table}
 		{
-			\caption{Characteristics of considered network graphs ($M=10^6$).}
+			\caption{Characteristics of network graphs, based on Open street Map(OSM)}
 			\begin{tabular}{|l|rr|}
 				\hline
 				                           & Germany  & Europe
@@ -327,6 +329,26 @@
 				\# edges (original)        & $121.7M$ & $902.1M$  \\
 				\# edges (CH)              & $248.4M$ & $1694.2M$ \\
 				CH construction time (min) & 16       & 125       \\
+				\hline
+			\end{tabular}
+		}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Experiments}
+	\framesubtitle{Trajectory data}
+	Dataset $\traj{ger}{real}$ of 370k real-world trajectories compiled from OSM-traces.
+	\begin{table}
+		{
+			\begin{tabular}{|l|rrr|}
+				\hline
+				                            & $\varnothing$ & $\sigma$ & max.  \\
+				\hline
+				\# shortest paths           & 11            & 16.6     & 1118  \\
+				length (km)                 & 14.78         & 34.6     & 1928  \\
+				original length (\#edges)   & 347           & 654      & 46112 \\
+				compressed length (\#edges) & 37            & 56       & 3726  \\
 				\hline
 			\end{tabular}
 		}
