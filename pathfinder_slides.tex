@@ -52,25 +52,28 @@
 \begin{document}
 \frame{\titlepage}
 
-\frame{\tableofcontents[
-		currentsection,
-		currentsubsection,
-		subsectionstyle=show/shaded/hide
-	]}
+\section{Overview}
+\begin{frame}
+	\frametitle{Overview}
+	\tableofcontents[
+		currentsection=show,
+		currentsubsection=shaded,
+		subsectionstyle=hide
+	]
+\end{frame}
 
 \section{Problem Description}
 \begin{frame}
 	\frametitle{Problem Description}
 	\begin{itemize}
 		\item road network graph $G(V,E,c)$ \pause
-		\item trajectory data is provided as a collection $\mathcal{T}$ \pause
-		\item $t\in \mathcal{T}$ is a sequence of nodes $\pi=v_0 v_1 \dots v_k$ in  $G$ annotated with timestamps $\tau_0, \tau_1, \dots, \tau_k$. \pause
+		\item collection of trajectories $\mathcal{T}$ where $t\in \mathcal{T}$ is a path $\pi=v_0 v_1 \dots v_k$ in $G$ annotated with timestamps $\tau_0, \tau_1, \dots, \tau_k$. \pause
 		\item \emph{window}-query of the form $[x_l, x_u]\times[y_l, y_u]\times[\tau_l, \tau_u]$ \pause
 		\item goal: Return all intersecting trajectories \pause
 
 
 	\end{itemize}
-	\includegraphics[width=0.95\linewidth]{graphics/saarland_real_data_gimp.pdf}
+	\includegraphics[width=0.75\linewidth]{graphics/saarland_real_data_gimp.pdf}
 \end{frame}
 
 
@@ -511,7 +514,7 @@
 	\framesubtitle{Edge-trajectory association}
 	\begin{figure}
 		{\includegraphics[width=.4\linewidth]{plots/osmGerHist.pdf} }
-		\caption{Edge-trajectory associations histogram  for $\traj{ger}{real}$ (left).}
+		\caption{Edge-trajectory associations histogram  for $\traj{ger}{real}$.}
 	\end{figure}
 \end{frame}
 
