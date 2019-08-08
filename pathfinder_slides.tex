@@ -83,13 +83,15 @@
 	\frametitle{Contraction Hierarchy}
 	\begin{itemize}
 		\item Contraction Hierarchy (CH) is an augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}. \pause
-		\item \emph{node contraction}: \pause
+		\item \emph{Node contraction}: \pause
 		      \begin{enumerate}
 			      \item Remove a node $v$ and all of its adjacent edges from the graph. \pause
-			      \item create shortcut $s = (u, w)$ between two adjacent nodes $u,w$ of $v$ if the only shortest path from $u$ to $w$ is the path $uvw$. $c(s) = c(uv) + c(vw)$. \pause
+			      \item If $\exists$ shortest path $uvw$ where $u$ and $w$ are adjacent to $v$ \pause
+
+			            $\Rightarrow$ create shortcut $s = (u, w)$ with $c(s) = c(uv) + c(vw)$. \pause
 		      \end{enumerate}
 		\item Construct CH by successively contracting all nodes. \pause
-		\item final CH data structure is defined as $G(V, E^+, c, l)$ where $E^+$ is the union of $E$ and all shortcuts.
+		\item Final CH data structure is defined as $G(V, E^+, c, l)$ where $E^+$ is the union of $E$ and all shortcuts.
 	\end{itemize}
 \end{frame}
 
