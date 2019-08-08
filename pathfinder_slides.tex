@@ -29,7 +29,7 @@
 {PATHFINDER}
 \subtitle{Storage and Indexing of Massive Trajectory Sets}
 \author[Funke, Nusser, Rupp, Storandt] % (optional, for multiple authors)
-{S.~Funke\inst{1} \and A.~Nusser\inst{2} \and T.~Rupp\inst{3} \and S.~Storandt\inst{4}}
+{Stefan~Funke\inst{1} \and André~Nusser\inst{2} \and Tobias~Rupp\inst{3} \and Sabine~Storandt\inst{4}}
 \institute[Universities] % (optional)
 {
 	\inst{1}%
@@ -52,14 +52,24 @@
 \begin{document}
 \frame{\titlepage}
 
-\section{Overview}
+\section{Motivation}
 \begin{frame}
-	\frametitle{Overview}
-	\tableofcontents[
-		currentsection=show,
-		currentsubsection=shaded,
-		subsectionstyle=hide
-	]
+	\frametitle{Motivation}
+	\begin{minipage}[t]{0.4\textwidth}
+		\vspace{0pt}
+		\includegraphics[width=1\linewidth]{images/trajectories.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}
+		\vspace{0pt}\raggedright
+		\begin{itemize}
+			\item<1-> Growing volume of trajectory data
+			\item<2-> Application: Traffic infrastructure planning
+		\end{itemize}
+	\end{minipage}
+
+
+
 \end{frame}
 
 \section{Problem Description}
