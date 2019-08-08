@@ -66,12 +66,13 @@
 \begin{frame}
 	\frametitle{Problem Description}
 	\begin{itemize}
-		\item road network graph $G(V,E,c)$ \pause
-		\item collection of trajectories $\mathcal{T}$ where $t\in \mathcal{T}$ is a path $\pi=v_0 v_1 \dots v_k$ in $G$ annotated with timestamps $\tau_0, \tau_1, \dots, \tau_k$. \pause
-		\item \emph{window}-query of the form $[x_l, x_u]\times[y_l, y_u]\times[\tau_l, \tau_u]$ \pause
+		\item Given: \pause
+		      \begin{itemize}
+			      \item road network graph $G(V,E,c)$ \pause
+			      \item collection of trajectories $\mathcal{T}$ where $t\in \mathcal{T}$ is a path $v_0 v_1 \dots v_k$ in $G$. \pause
+			      \item \emph{window}-query of the form $[x_l, x_u]\times[y_l, y_u]$ \pause
+		      \end{itemize}
 		\item goal: Return all intersecting trajectories \pause
-
-
 	\end{itemize}
 	\includegraphics[width=0.75\linewidth]{graphics/saarland_real_data_gimp.pdf}
 \end{frame}
