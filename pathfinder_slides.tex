@@ -97,20 +97,28 @@ aspectratio=169,% for widescreen (16:9) presentations
 \end{frame}
 
 
-\section{Preliminaries}
-\begin{frame}
-	\frametitle{Contraction Hierarchy}
-	\begin{itemize}
-		\item Contraction Hierarchy (CH) is an augmentation of a graph $G(V,E,c)$ with \emph{shortcuts} and \emph{node levels}. \pause
-		\item \emph{Node contraction}: \pause
-		      \begin{enumerate}
-			      \item Remove a node $v$ and all of its adjacent edges from the graph. \pause
-			      \item If $\exists$ shortest path $uvw$ where $u$ and $w$ are adjacent to $v$ \pause
+\section{Contraction Hierarchies}
 
-			            $\Rightarrow$ create shortcut $s = (u, w)$ with $c(s) = c(uv) + c(vw)$. \pause
-		      \end{enumerate}
-		\item Construct CH by successively contracting all nodes. \pause
-		\item Final CH data structure is defined as $G(V, E^+, c, l)$ where $E^+$ is the union of $E$ and all shortcuts.
+\begin{frame}{Construction}
+	\begin{itemize}[<+(1)->]
+		\item remove nodes one-by-one
+		\item (order determined by heuristic or even random)
+		\item add edges to retain shortest paths
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Construction (Example - remove node $v$)}
+	\centering
+	\includegraphics<2>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/ch_constr/ch_constr_1.eps}%
+	\includegraphics<3>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/ch_constr/ch_constr_2.eps}%
+	\includegraphics<4>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/ch_constr/ch_constr_3.eps}%
+\end{frame}
+
+\begin{frame}{Query}
+	\begin{itemize}[<+(1)->]
+		\item start bidirectional dijkstra from $s$ and $t$
+		\item only consider edges which go up
+		\item node with smallest summed distance determines shortest path
 	\end{itemize}
 \end{frame}
 
