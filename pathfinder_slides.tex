@@ -66,7 +66,7 @@ aspectratio=169,% for widescreen (16:9) presentations
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\textwidth}
-		\vspace{0pt}\raggedright
+		\vspace{0pt}
 		\begin{itemize}
 			\item<1-> Growing volume of trajectory data
 			\item<2-> Application: Traffic infrastructure planning
@@ -200,83 +200,89 @@ aspectratio=169,% for widescreen (16:9) presentations
 	\frametitle{False positives}
 	\framesubtitle{Example}
 
-	\begin{tikzpicture}
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
 
-		%\SetGraphUnit{1}
+		\begin{tikzpicture}
 
-		%\GraphInit[vstyle=Classic]
-		\tikzset{VertexStyle/.style =
-				{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
-		}
+			%\SetGraphUnit{1}
 
-		%edge
-		\tikzstyle{EdgeStyle}=[->, color=black]
-		%\SetVertexNoLabel
-		\Vertex[x=-0.5,y=2]{source}
-		\Vertex[x=2,y=3.25]{target}
+			%\GraphInit[vstyle=Classic]
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+			}
 
-		\Edge[label=e,position=above](source)(target) {e}
+			%edge
+			\tikzstyle{EdgeStyle}=[->, color=black]
+			%\SetVertexNoLabel
+			\Vertex[x=-0.5,y=2]{source}
+			\Vertex[x=2,y=3.25]{target}
+
+			\Edge[label=e,position=above](source)(target) {e}
 
 
-		\tikzset{VertexStyle/.style =
-				{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
-		}
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
+			}
 
-		\only<2->{
-		%edgeBox
-		\Vertex[x=2,y=2]{6}
-		\Vertex[x=-0.5,y=3.25]{8}
+			\only<2->{
+			%edgeBox
+			\Vertex[x=2,y=2]{6}
+			\Vertex[x=-0.5,y=3.25]{8}
 
-		\tikzstyle{EdgeStyle}=[color=blue]
-		\Edge(source)(6)
-		\Edge(6)(target)
-		\Edge(target)(8)
-		\Edge(8)(source)
-		}
+			\tikzstyle{EdgeStyle}=[color=blue]
+			\Edge(source)(6)
+			\Edge(6)(target)
+			\Edge(target)(8)
+			\Edge(8)(source)
+			}
 
-		%queryBox
-		\Vertex[x=1.25,y=1.75]{1}
-		\Vertex[x=3,y=1.75]{2}
-		\Vertex[x=3,y=2.75]{3}
-		\Vertex[x=1.25,y=2.75]{4}
+			%queryBox
+			\Vertex[x=1.25,y=1.75]{1}
+			\Vertex[x=3,y=1.75]{2}
+			\Vertex[x=3,y=2.75]{3}
+			\Vertex[x=1.25,y=2.75]{4}
 
-		\tikzstyle{EdgeStyle}=[color=red]
-		\Edge(1)(2)
-		\Edge[label=Q,position=right, fontcolor=red](2)(3)
-		\Edge(3)(4)
-		\Edge(4)(1)
+			\tikzstyle{EdgeStyle}=[color=red]
+			\Edge(1)(2)
+			\Edge[label=Q,position=right, fontcolor=red](2)(3)
+			\Edge(3)(4)
+			\Edge(4)(1)
 
-		%unpacked
-		\tikzset{VertexStyle/.style =
-				{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
-		}
+			%unpacked
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+			}
 
-		\only<3,5->{
-		%possibility1
-		\Vertex[x=0.5,y=3]{9}
+			\only<3,5->{
+			%possibility1
+			\Vertex[x=0.5,y=3]{9}
 
-		\tikzstyle{EdgeStyle}=[->, color=green, dashed]
-		\Edge(source)(9)
-		\Edge(9)(target)
-		}
+			\tikzstyle{EdgeStyle}=[->, color=green, dashed]
+			\Edge(source)(9)
+			\Edge(9)(target)
+			}
 
-		\only<4,5->{
-		%possibility2
-		\Vertex[x=1.5,y=2.5]{10}
+			\only<4,5->{
+			%possibility2
+			\Vertex[x=1.5,y=2.5]{10}
 
-		\tikzstyle{EdgeStyle}=[->, color=brown, dashed]
-		\Edge(source)(10)
-		\Edge(10)(target)
-		}
-	\end{tikzpicture}
-	\pause
-
-	\begin{itemize}
-		\item<2-> $PB(e) \cap Q \neq \emptyset \Rightarrow e$ is candidate
-		\item<3-> $e$ bridges brown path  $\Rightarrow$ true positive
-		\item<4-> $e$ bridges green path  $\Rightarrow$ false positive
-		\item<5-> $\Rightarrow$ $e$ have to be unpacked recursively
-	\end{itemize}
+			\tikzstyle{EdgeStyle}=[->, color=brown, dashed]
+			\Edge(source)(10)
+			\Edge(10)(target)
+			}
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\begin{itemize}
+			\item<2-> $PB(e) \cap Q \neq \emptyset \Rightarrow e$ is candidate
+			\item<3-> $e$ bridges brown path  $\Rightarrow$ true positive
+			\item<4-> $e$ bridges green path  $\Rightarrow$ false positive
+			\item<5-> $\Rightarrow$ $e$ have to be unpacked recursively
+		\end{itemize}
+	\end{minipage}
 \end{frame}
 
 %\subsection{\getAssociatedTrajectories}
