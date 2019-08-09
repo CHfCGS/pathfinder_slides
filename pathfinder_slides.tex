@@ -12,13 +12,13 @@ aspectratio=169,% for widescreen (16:9) presentations
 \usepackage[noend]{algpseudocode}
 \usepackage{listings}
 \usepackage{tikz}
-\usepackage{tkz-graph}
 \usetikzlibrary{arrows,%
 	petri,%
 	topaths,
 	calc}%
 \usepackage{siunitx}
 \usepackage{diagbox}
+\usepackage{tikz-network}
 
 \newcommand{\TODO}[1]{\noindent\textcolor{green}{\textbf{TODO:} #1}}
 
@@ -203,16 +203,16 @@ aspectratio=169,% for widescreen (16:9) presentations
 	Example: Black candidate edge $e$ and red query rectangle
 	\begin{tikzpicture}
 
-		\SetGraphUnit{1}
+		%\SetGraphUnit{1}
 
-		\GraphInit[vstyle=Classic]
+		%\GraphInit[vstyle=Classic]
 		\tikzset{VertexStyle/.style =
 				{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
 		}
 
 		%edge
 		\tikzstyle{EdgeStyle}=[->, color=black]
-		\SetVertexNoLabel
+		%\SetVertexNoLabel
 		\Vertex[x=-0.5,y=2]{source}
 		\Vertex[x=2,y=3.25]{target}
 
@@ -224,7 +224,6 @@ aspectratio=169,% for widescreen (16:9) presentations
 		\tikzset{VertexStyle/.style =
 				{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
 		}
-		\SetVertexNoLabel
 		\Vertex[x=2,y=2]{6}
 		\Vertex[x=-0.5,y=3.25]{8}
 
@@ -253,14 +252,14 @@ aspectratio=169,% for widescreen (16:9) presentations
 		}
 
 		%possibility1
-		\Vertex[x=0.5,y=3, LabelOut=true, Lpos=-90]{9}
+		\Vertex[x=0.5,y=3]{9}
 
 		\tikzstyle{EdgeStyle}=[->, color=green, dashed]
 		\Edge(source)(9)
 		\Edge(9)(target)
 
 		%possibility2
-		\Vertex[x=1.5,y=2.5, LabelOut=true, Lpos=180]{10}
+		\Vertex[x=1.5,y=2.5]{10}
 
 		\tikzstyle{EdgeStyle}=[->, color=brown, dashed]
 		\Edge(source)(10)
