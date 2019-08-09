@@ -62,7 +62,7 @@ aspectratio=169,% for widescreen (16:9) presentations
 	\frametitle{Motivation}
 	\begin{minipage}[t]{0.4\textwidth}
 		\vspace{0pt}
-		\includegraphics[width=1\linewidth]{images/trajectories.png}
+		\includegraphics[height=0.9\textheight]{images/trajectories.png}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.5\textwidth}
@@ -72,24 +72,27 @@ aspectratio=169,% for widescreen (16:9) presentations
 			\item<2-> Application: Traffic infrastructure planning
 		\end{itemize}
 	\end{minipage}
-
-
-
 \end{frame}
 
 \section{Problem Description}
 \begin{frame}
 	\frametitle{Problem Description}
-	\begin{itemize}
-		\item Given: \pause
-		      \begin{itemize}
-			      \item road network graph $G(V,E,c)$ \pause
-			      \item collection of trajectories $\mathcal{T}$ where $t\in \mathcal{T}$ is a path $v_0 v_1 \dots v_k$ in $G$. \pause
-			      \item \emph{window}-query of the form $[x_l, x_u]\times[y_l, y_u]$ \pause
-		      \end{itemize}
-		\item goal: Return all intersecting trajectories \pause
-	\end{itemize}
-	\includegraphics[width=0.75\linewidth]{graphics/saarland_real_data_gimp.pdf}
+	\begin{minipage}[t]{0.4\textwidth}
+		\includegraphics<1>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/saarland_real_data_1.png}
+		\includegraphics<2>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/saarland_real_data_2.png}
+		\includegraphics<3>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/saarland_real_data_3.png}
+		\includegraphics<4>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/saarland_real_data_4.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}
+		\vspace{0pt}\raggedright
+		\begin{itemize}
+			\item<1-> road network graph $G(V,E,c)$
+			\item<2-> collection of trajectories $\mathcal{T}$ where $t\in \mathcal{T}$ is a path $v_0 v_1 \dots v_k$ in $G$.
+			\item<3-> \emph{window}-query of the form $[x_l, x_u]\times[y_l, y_u]$
+			\item<4-> Return all intersecting trajectories \pause
+		\end{itemize}
+	\end{minipage}
 \end{frame}
 
 
