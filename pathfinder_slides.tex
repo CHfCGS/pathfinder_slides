@@ -216,7 +216,7 @@ aspectratio=169,% for widescreen (16:9) presentations
 		\Vertex[x=-0.5,y=2]{source}
 		\Vertex[x=2,y=3.25]{target}
 
-		\Edge(source)(target) {e}
+		\Edge[label=e,position=above](source)(target) {e}
 
 
 		%edgeBox
@@ -242,7 +242,7 @@ aspectratio=169,% for widescreen (16:9) presentations
 
 		\tikzstyle{EdgeStyle}=[color=red]
 		\Edge(1)(2)
-		\Edge(2)(3)
+		\Edge[label=Q,position=right, fontcolor=red](2)(3)
 		\Edge(3)(4)
 		\Edge(4)(1)
 
