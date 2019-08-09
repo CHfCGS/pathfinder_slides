@@ -125,10 +125,59 @@ aspectratio=169,% for widescreen (16:9) presentations
 \begin{frame}
 	\frametitle{\chrep}
 	\framesubtitle{Compression}
-	\begin{figure}
-		\caption{Original path (black) and derivation of its \chrep (bold blue) via repeated shortcut substitution. $y$-coordinate corresponds to CH level.}
-		\includegraphics[width=.76\columnwidth]{images/toch}
-	\end{figure}
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+
+		\begin{tikzpicture}
+
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+			}
+
+			%edge
+			\tikzstyle{EdgeStyle}=[->, color=black]
+			\Vertex[x=0,y=1]{1}
+			\Vertex[x=2,y=-1]{2}
+			\Vertex[x=3,y=3]{3}
+			\Vertex[x=4,y=1]{4}
+			\Vertex[x=5,y=0]{5}
+			\Vertex[x=6,y=2]{6}
+
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
+			}
+
+			\only<1->{
+				\tikzstyle{EdgeStyle}=[color=blue]
+				\Edge(1)(2)
+				\Edge(2)(3)
+				\Edge(3)(4)
+				\Edge(4)(5)
+				\Edge(5)(6)
+			}
+
+			\only<2->{
+				\tikzstyle{EdgeStyle}=[color=blue]
+				\Edge(1)(3)
+			}
+
+			\only<3->{
+				\tikzstyle{EdgeStyle}=[color=blue]
+				\Edge(4)(6)
+			}
+			\only<4->{
+				\tikzstyle{EdgeStyle}=[color=blue]
+				\Edge(3)(6)
+			}
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\begin{itemize}
+			\item<1-> Compression from 5 to 2 edges
+		\end{itemize}
+	\end{minipage}
 \end{frame}
 
 \section{Algorithm}
