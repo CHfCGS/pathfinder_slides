@@ -197,10 +197,9 @@ aspectratio=169,% for widescreen (16:9) presentations
 
 %\subsection{\refineEdgeCandidates}
 \begin{frame}
-	\frametitle{\refineEdgeCandidates}
-	Problem: Some of the candidates my be false positives. \pause
+	\frametitle{False positives}
+	\framesubtitle{Example}
 
-	Example: Black candidate edge $e$ and red query rectangle
 	\begin{tikzpicture}
 
 		%\SetGraphUnit{1}
@@ -219,11 +218,12 @@ aspectratio=169,% for widescreen (16:9) presentations
 		\Edge[label=e,position=above](source)(target) {e}
 
 
-		%edgeBox
-
 		\tikzset{VertexStyle/.style =
 				{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
 		}
+
+		\only<2->{
+		%edgeBox
 		\Vertex[x=2,y=2]{6}
 		\Vertex[x=-0.5,y=3.25]{8}
 
@@ -232,7 +232,7 @@ aspectratio=169,% for widescreen (16:9) presentations
 		\Edge(6)(target)
 		\Edge(target)(8)
 		\Edge(8)(source)
-
+		}
 
 		%queryBox
 		\Vertex[x=1.25,y=1.75]{1}
@@ -251,30 +251,32 @@ aspectratio=169,% for widescreen (16:9) presentations
 				{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
 		}
 
+		\only<3,5->{
 		%possibility1
 		\Vertex[x=0.5,y=3]{9}
 
 		\tikzstyle{EdgeStyle}=[->, color=green, dashed]
 		\Edge(source)(9)
 		\Edge(9)(target)
+		}
 
+		\only<4,5->{
 		%possibility2
 		\Vertex[x=1.5,y=2.5]{10}
 
 		\tikzstyle{EdgeStyle}=[->, color=brown, dashed]
 		\Edge(source)(10)
 		\Edge(10)(target)
+		}
 	\end{tikzpicture}
 	\pause
 
-	Here $e$ is a candidate because of $PB(e) \cap Q \neq \emptyset$. \pause
-
-	If $e$ bridges \pause
 	\begin{itemize}
-		\item intersecting brown path  $\Rightarrow$ true positive \pause
-		\item non-intersecting green path $\Rightarrow$ false positive \pause
+		\item<2-> $PB(e) \cap Q \neq \emptyset \Rightarrow e$ is candidate
+		\item<3-> $e$ bridges brown path  $\Rightarrow$ true positive
+		\item<4-> $e$ bridges green path  $\Rightarrow$ false positive
+		\item<5-> $\Rightarrow$ $e$ have to be unpacked recursively
 	\end{itemize}
-	$\Rightarrow$ in doubt, $e$ have to be unpacked recursively
 \end{frame}
 
 %\subsection{\getAssociatedTrajectories}
