@@ -125,6 +125,14 @@ dvipsnames,
 
 		\begin{tikzpicture}
 
+			%level axis
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
+			}
+			\Vertex[x=-1, y=-1, position=below]{level_l}
+			\Vertex[x=-1, y=3, position=below]{level_u}
+			\Edge[Direct, label=level, position=left, lw=1pt](level_l)(level_u)
+
 			\tikzset{VertexStyle/.style =
 					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
 			}
@@ -240,7 +248,6 @@ dvipsnames,
 
 			%edge
 			\tikzstyle{EdgeStyle}=[->, color=black]
-			%\SetVertexNoLabel
 			\Vertex[x=-0.5,y=2]{source}
 			\Vertex[x=2,y=3.25]{target}
 
