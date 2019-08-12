@@ -280,7 +280,7 @@ dvipsnames,
 					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
 			}
 
-			\only<6,8->{
+			\only<6>{
 			%possibility1
 			\Vertex[x=0.5,y=3]{9}
 
@@ -289,7 +289,7 @@ dvipsnames,
 			\Edge(9)(target)
 			}
 
-			\only<7,8->{
+			\only<7->{
 			%possibility2
 			\Vertex[x=1.5,y=2.5]{10}
 
@@ -304,10 +304,10 @@ dvipsnames,
 		\vspace{0pt}
 		\begin{itemize}
 			\item<2-> $PB(e) \cap Q \neq \emptyset \Rightarrow e$ is candidate
-			\item<3-> Check for actual intersection
+			\item<3-> Check for actual intersection, is $e$ a shortcut?
 			      \begin{enumerate}
-				      \item<4-> $e$ is no shortcut $\Rightarrow$ false positive
-				      \item<5-> $e$ is a shortcut and bridges
+				      \item<4-> yes $\Rightarrow$ false positive
+				      \item<5-> no $\Rightarrow$ Which path does it bridge?
 				            \begin{enumerate}
 					            \item<6-> \textcolor{ForestGreen}{green} path $\Rightarrow$ false positive
 					            \item<7-> \textcolor{brown}{brown} path $\Rightarrow$ true positive
