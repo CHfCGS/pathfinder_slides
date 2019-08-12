@@ -221,32 +221,6 @@ dvipsnames,
 	\end{algorithm}
 \end{frame}
 
-\begin{frame}
-	\frametitle{\findEdgeCandidates}
-	\begin{algorithm}[H]
-		\renewcommand{\thealgorithm}{}
-		{\tiny
-			\caption{The algorithm to find edge candidates given a query rectangle $Q$.}
-			\begin{algorithmic}[1]
-				\Procedure{FindCandidatesForNode}{$v, Q$}
-				\State $C \gets \emptyset$
-				\For {$e \in \text{down edges of $v$}$}
-				\If {$PB(e) \cap Q \neq \emptyset$}
-				\State $C \gets C \cup \{e\}$
-				\EndIf
-				\State $v_l \gets \text{lower node of $e$}$
-				\If {$DB(v_l) \cap Q \neq \emptyset$}
-				\State $C \gets C \cup \Call{FindCandidatesForNode}{v_l, Q}$
-				\EndIf
-				\EndFor
-				\State \Return $C$
-				\EndProcedure
-			\end{algorithmic}
-		}
-	\end{algorithm}
-	\includegraphics[width=.45\columnwidth]{images/containedDowngraphBox}
-\end{frame}
-
 %\subsection{\refineEdgeCandidates}
 \begin{frame}
 	\frametitle{False positives}
