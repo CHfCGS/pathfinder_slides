@@ -3,11 +3,14 @@
 aspectratio=1610,% for (16:10) presentations
 %aspectratio=43,% for traditional (4:3) presentations
 % handout%
+usenames,
+dvipsnames,
 ]{beamer}
 
 \usetheme{Berkeley}
 
 \usepackage{default}
+\usepackage{xcolor}
 \usepackage{xspace}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
@@ -296,7 +299,7 @@ aspectratio=1610,% for (16:10) presentations
 			\Vertex[x=2,y=2]{6}
 			\Vertex[x=-0.5,y=3.25]{8}
 
-			\tikzstyle{EdgeStyle}=[color=blue]
+			\tikzstyle{EdgeStyle}=[color=red]
 			\Edge(source)(6)
 			\Edge(6)(target)
 			\Edge(target)(8)
@@ -309,9 +312,9 @@ aspectratio=1610,% for (16:10) presentations
 			\Vertex[x=3,y=2.75]{3}
 			\Vertex[x=1.25,y=2.75]{4}
 
-			\tikzstyle{EdgeStyle}=[color=red]
+			\tikzstyle{EdgeStyle}=[color=blue]
 			\Edge(1)(2)
-			\Edge[label=Q,position=right, fontcolor=red](2)(3)
+			\Edge[label=Q,position=right, fontcolor=blue](2)(3)
 			\Edge(3)(4)
 			\Edge(4)(1)
 
@@ -324,7 +327,7 @@ aspectratio=1610,% for (16:10) presentations
 			%possibility1
 			\Vertex[x=0.5,y=3]{9}
 
-			\tikzstyle{EdgeStyle}=[->, color=green, dashed]
+			\tikzstyle{EdgeStyle}=[->, color=ForestGreen, dashed]
 			\Edge(source)(9)
 			\Edge(9)(target)
 			}
@@ -364,7 +367,7 @@ aspectratio=1610,% for (16:10) presentations
 \begin{frame}
 	\frametitle{Optimization}
 	\begin{itemize}
-		\item<1-> All 3 substeps can be efficiently parallelized.
+		\item<1-> Efficient parallelization possible by identifying a tree within the DAG
 		\item<2-> Trajectory data can be stored on disk instead of RAM.
 	\end{itemize}
 \end{frame}
@@ -387,7 +390,7 @@ aspectratio=1610,% for (16:10) presentations
 \begin{frame}
 	\frametitle{Experiments}
 	\framesubtitle{Technology}
-	\pathfinder was implemented in C++. \pause
+	Implementation in C++. \pause
 	\medskip
 
 	Experiments were conducted on two machines: \pause
