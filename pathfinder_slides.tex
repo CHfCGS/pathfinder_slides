@@ -323,7 +323,7 @@ dvipsnames,
 					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
 			}
 
-			\only<3,5->{
+			\only<6,8->{
 			%possibility1
 			\Vertex[x=0.5,y=3]{9}
 
@@ -332,7 +332,7 @@ dvipsnames,
 			\Edge(9)(target)
 			}
 
-			\only<4,5->{
+			\only<7,8->{
 			%possibility2
 			\Vertex[x=1.5,y=2.5]{10}
 
@@ -347,9 +347,15 @@ dvipsnames,
 		\vspace{0pt}
 		\begin{itemize}
 			\item<2-> $PB(e) \cap Q \neq \emptyset \Rightarrow e$ is candidate
-			\item<3-> $e$ bridges brown path  $\Rightarrow$ true positive
-			\item<4-> $e$ bridges green path  $\Rightarrow$ false positive
-			\item<5-> $\Rightarrow$ $e$ have to be unpacked recursively
+			\item<3-> Check for actual intersection
+			      \begin{enumerate}
+				      \item<4-> $e$ is no shortcut $\Rightarrow$ false positive
+				      \item<5-> $e$ is a shortcut and bridges
+				            \begin{enumerate}
+					            \item<6-> \textcolor{ForestGreen}{green} path $\Rightarrow$ false positive
+					            \item<7-> \textcolor{brown}{brown} path $\Rightarrow$ true positive
+				            \end{enumerate}
+			      \end{enumerate}
 		\end{itemize}
 	\end{minipage}
 \end{frame}
