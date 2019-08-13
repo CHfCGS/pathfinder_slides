@@ -140,8 +140,8 @@ dvipsnames,
 					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
 			}
 			\Vertex[x=-1, y=-1]{level_l}
-			\Vertex[x=-1, y=3]{level_u}
-			\Edge[Direct, label=level, position=left, lw=1pt](level_l)(level_u)
+			\Vertex[x=-1, y=3, label=level, position=left]{level_u}
+			\Edge[Direct, lw=1pt](level_l)(level_u)
 
 			\tikzset{VertexStyle/.style =
 					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
@@ -236,12 +236,12 @@ dvipsnames,
 				\Vertex[x=1, y=1]{origin}
 
 				%x-axis
-				\Vertex[x=9, y=1]{x_u}
-				\Edge[Direct, label=x, position=below, lw=1pt](origin)(x_u)
+				\Vertex[x=9, y=1, label=x, position=below, fontsize=\large]{x_u}
+				\Edge[Direct, lw=1pt](origin)(x_u)
 
 				%y-axis
-				\Vertex[x=1, y=9]{y_u}
-				\Edge[Direct, label=y, position=left, lw=1pt](origin)(y_u)
+				\Vertex[x=1, y=9, label=y, position=left, fontsize=\large]{y_u}
+				\Edge[Direct, lw=1pt](origin)(y_u)
 
 				\tikzset{VertexStyle/.style =
 						{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
