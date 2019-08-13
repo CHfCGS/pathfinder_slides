@@ -86,18 +86,21 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\includegraphics<1>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_1.png}
-		\includegraphics<2>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_2.png}
-		\includegraphics<3>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_3.png}
-		\includegraphics<4>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_4.png}
+		\includegraphics<2-3>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_2.png}
+		\includegraphics<4>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_3.png}
+		\includegraphics<5>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_4.png}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\begin{itemize}
-			\item<1-> road network graph $G(V,E,c)$
-			\item<2-> map-matched trajectories
-			\item<3-> \emph{window}-query
-			\item<4-> Return all intersecting trajectories
+			\item road network graph $G(V,E,c)$ \pause
+			\item map-matched trajectories \pause
+
+			      $\Rightarrow$ 1.Problem: Compression \pause
+			\item \emph{window}-query \pause
+
+			      $\Rightarrow$ 2.Problem: Retrieve intersecting trajectories
 		\end{itemize}
 	\end{minipage}
 \end{frame}
@@ -119,6 +122,8 @@ dvipsnames,
 	\includegraphics<3>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/ch_constr/ch_constr_2.eps}%
 	\includegraphics<4>[keepaspectratio,height=.8\textheight,width=.8\textwidth]{graphics/ch_constr/ch_constr_3.eps}%
 \end{frame}
+
+\section{Compression}
 
 \begin{frame}
 	\frametitle{Compression}
@@ -211,7 +216,7 @@ dvipsnames,
 	\end{minipage}
 \end{frame}
 
-\section{Algorithm}
+\section{Retrieval}
 
 \begin{frame}
 	\frametitle{Inverted Index}
