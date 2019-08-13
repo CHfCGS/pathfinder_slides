@@ -239,14 +239,14 @@ dvipsnames,
 				\tikzset{VertexStyle/.style =
 						{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
 				}
-				\Vertex[x=2,y=4, label=1]{1}
-				\Vertex[x=3,y=2, label=2]{2}
-				\Vertex[x=4,y=4, label=3]{3}
-				\Vertex[x=6,y=5, label=4]{4}
-				\Vertex[x=7,y=7, label=5]{5}
-				\Vertex[x=9,y=6, label=6]{6}
-				\Vertex[x=5,y=8, label=7]{7}
-				\Vertex[x=3,y=8, label=8]{8}
+				\Vertex[x=2,y=4]{1}
+				\Vertex[x=3,y=2]{2}
+				\Vertex[x=4,y=4]{3}
+				\Vertex[x=6,y=5]{4}
+				\Vertex[x=7,y=7]{5}
+				\Vertex[x=9,y=6]{6}
+				\Vertex[x=5,y=8]{7}
+				\Vertex[x=3,y=8]{8}
 
 
 				%graph edges
@@ -258,15 +258,21 @@ dvipsnames,
 				\Edge(5)(7)
 				\Edge(7)(8)
 
+				\tikzset{VertexStyle/.style =
+						{minimum size = 0pt,inner sep=0pt}
+				}
+
 				%t_1
-				\tikzset{auto shift/.style={auto=left,->,
+				\Vertex[x=2,y=4.5, label=$t_1$, fontcolor=red, fontsize=\large]{redLabel}
+
+				\tikzset{auto shift/.style={auto=left,
 				to path={ let \p1=(\tikztostart),\p2=(\tikztotarget),
 				\n1={atan2(\y2-\y1,\x2-\x1)},\n2={\n1+180}
 				in ($(\tikztostart.{\n1})!1mm!90:(\tikztotarget.{\n2})$) --
 				($(\tikztotarget.{\n2})!1mm!270:(\tikztostart.{\n1})$) \tikztonodes}}}
 
 				\draw
-				(1) edge[auto shift, color=red] node {$t_1$} (3)
+				(1) edge[auto shift, color=red] (3)
 				(3) edge[auto shift, color=red] (4)
 				(4) edge[auto shift, color=red] (5)
 				(5) edge[auto shift, color=red] (7)
@@ -274,18 +280,22 @@ dvipsnames,
 				;
 
 				%t_2
-				\tikzset{auto shift/.style={auto=right,->,
+				\Vertex[x=4,y=2, label=$t_2$, fontcolor=ForestGreen, fontsize=\large]{greenLabel}
+
+				\tikzset{auto shift/.style={auto=right,
 				to path={ let \p1=(\tikztostart),\p2=(\tikztotarget),
 				\n1={atan2(\y2-\y1,\x2-\x1)},\n2={\n1+180}
 				in ($(\tikztostart.{\n1})!1mm!270:(\tikztotarget.{\n2})$) --
 				($(\tikztotarget.{\n2})!1mm!90:(\tikztostart.{\n1})$) \tikztonodes}}}
 
 				\draw
-				(2) edge[auto shift, color=ForestGreen] node {$t_2$} (3)
+				(2) edge[auto shift, color=ForestGreen] (3)
 				(3) edge[auto shift, color=ForestGreen] (4)
 				(4) edge[auto shift, color=ForestGreen] (5)
 				(5) edge[auto shift, color=ForestGreen] (6)
 				;
+
+
 			\end{tikzpicture}
 		}
 	\end{minipage}
@@ -293,7 +303,7 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\begin{itemize}
-			\item<1-> Inverted Index: Associate a trajectory with all edges of its short representation in $E^+$.
+			\item<1-> Inverted Index: Every edge $e$ has a list of trajectories going over it. Associate a trajectory with all edges of its shortest path representation in $E^+$.
 		\end{itemize}
 	\end{minipage}
 \end{frame}
