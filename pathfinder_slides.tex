@@ -109,11 +109,20 @@ dvipsnames,
 \section{Contraction Hierarchies}
 
 \begin{frame}{Contraction Hierarchies}
+	\begin{itemize}[<+(1)->]
+		\item basis for \pathfinder
+		\item data structure to speed up shortest-path queries
+		\item augmentation of the original graph $G$ with shortcuts and levels
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Contraction Hierarchies}
 	\framesubtitle{Construction}
 	\begin{itemize}[<+(1)->]
 		\item remove nodes one-by-one
 		\item (order determined by heuristic or even random)
-		\item add edges to retain shortest paths
+		\item add \emph{shortcut} edges to retain shortest paths
+		\item original graph + all \emph{shortcut} edges ever created = CH
 	\end{itemize}
 \end{frame}
 
