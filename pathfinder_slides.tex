@@ -530,20 +530,21 @@ dvipsnames,
 
 \begin{frame}
 	\frametitle{Experiments}
-	\framesubtitle{Spatial queries}
+	\framesubtitle{Retrieval}
 	\begin{table}
-		\caption[Messungen$europe\_10\_24_spatial_nekton$]{Measurements  for $|\traj{eu}{synth}| = 10^7$ with 24 threads for spatial only queries in seconds.}
+		\begin{itemize}
+			\item 10 million synthesized trajectories with length of 15 km within europe
+			\item 24 threads
+			\item averaged over 100 queries
+		\end{itemize}
 
-
-		\footnotesize
 		\centering
-		\begin{tabular}{|r||c|c|c|c|c|}
+		\begin{tabular}{|r||c|c|c|}
 			\hline
-			\diagbox[width=40pt]{d}{r} & 1/8   & 1/16  & 1/32
-			\\\hline
-			25km                       & 0.270 & 0.093 & 0.041 \\
-			100km                      & 1.866 & 0.609 & 0.201 \\
-			400km                      & 2.124 & 0.685 & 0.222 \\
+			rectangle size w.r.t. to europe & 1/64                     & 1/256                   & 1/1024                  \\
+			\hline
+			time[s]                         & \SI{270}{\milli \second} & \SI{93}{\milli \second} & \SI{41}{\milli \second} \\
+			output size                     & 57K                      & 18K                     & 7K                      \\
 			\hline
 		\end{tabular}
 	\end{table}
