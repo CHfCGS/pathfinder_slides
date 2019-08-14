@@ -553,7 +553,7 @@ dvipsnames,
 				}
 
 				%tree
-				\only<4>{
+				\only<4->{
 					\Edge[Direct](3)(2)
 					\Edge[Direct](6)(5)
 					\Edge[Direct](3)(1)
@@ -577,22 +577,45 @@ dvipsnames,
 				\node at (4,-5) (4l) {};
 				\node at (5,-5) (5l) {};
 
-				\interval{1l}{1l}
-				\interval{2l}{2l}
-				\interval{4l}{4l}
-				\interval{5l}{5l}
+				\only<5>{
+					\draw[dotted](1n) to (1l);
+					\draw[dotted](2n) to (2l);
+					\draw[dotted](4n) to (4l);
+					\draw[dotted](5n) to (5l);
+				}
+
+				\only<5->{
+					\interval{1l}{1l}
+					\interval{2l}{2l}
+					\interval{4l}{4l}
+					\interval{5l}{5l}
+				}
 
 				%mid row
 				\node at (4,-4) (4m) {};
 				\node at (6,-4) (6m) {};
 
-				\interval{4m}{6m} %6
+				\only<6>{
+					\draw[dotted](4n) to (4m);
+					\draw[dotted](6n) to (6m);
+				}
+
+				\only<6->{
+					\interval{4m}{6m} %6
+				}
 
 				%upper row
 				\node at (0,-3) (1u) {};
 				\node at (6,-3) (6u) {};
 
-				\interval{1u}{6u} %3
+				\only<7>{
+					\draw[dotted](1n) to (1u);
+					\draw[dotted](6n) to (6u);
+				}
+
+				\only<7->{
+					\interval{1u}{6u} %3
+				}
 
 			\end{tikzpicture}
 		}
