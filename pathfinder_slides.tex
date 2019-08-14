@@ -469,6 +469,18 @@ dvipsnames,
 
 \section{Extensions}
 
+\newcommand\interval[2]{
+	%connection
+	\draw let \p1 = (#1),\p2 = (#2) in
+	(\x1,\y1) to (\x2,\y2);
+	%left border
+	\draw let \p1 = (#1),\p2 = (#2) in
+	(\x1,\y1-5) to (\x1,\y1+5);
+	%right border
+	\draw let \p1 = (#1),\p2 = (#2) in
+	(\x2,\y2-5) to (\x2,\y2+5);
+}
+
 \begin{frame}
 	\frametitle{Extensions}
 	\framesubtitle{Optimization: CH as R-Tree}
@@ -548,6 +560,14 @@ dvipsnames,
 					\Edge[Direct](6)(4)
 					\Edge[Direct](3)(6)
 				}
+
+				\node at (0,-3) (1) {};
+				\node at (2,-3) (2) {};
+				\node at (3,-3) (3) {};
+				\interval{1}{2}
+				\interval{2}{3}
+				\interval{3}{1}
+
 
 			\end{tikzpicture}
 		}
