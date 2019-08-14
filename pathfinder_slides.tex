@@ -27,6 +27,10 @@ dvipsnames,
 \usepackage{diagbox}
 \usepackage{tikz-network}
 
+% add the following two lines to your document to get bigger arrows
+\usetikzlibrary{arrows.meta}
+\tikzset{>={Latex[width=3mm,length=3mm]}}
+
 \newcommand{\TODO}[1]{\noindent\textcolor{green}{\textbf{TODO:} #1}}
 
 \newcommand{\pathfinder}{\textsc{Pathfinder}\xspace}
@@ -497,61 +501,84 @@ dvipsnames,
 				\Vertex[x=5,y=0, label=5, position=below]{5}
 				\Vertex[x=6,y=2, label=6, position=below]{6}
 
+				%original picture
 				\tikzstyle{EdgeStyle}=[color=red]
-
 				\only<1>{
-					\Edge(1)(2)
+					\Edge[color=red, style=dashed](1)(2)
 				}
+				\only<1>{
+					\Edge[color=red, style=dashed](2)(3)
+				}
+				\only<1>{
+					\Edge[color=red, style=dashed](3)(4)
+				}
+				\only<1>{
+					\Edge[color=red, style=dashed](4)(5)
+				}
+				\only<1>{
+					\Edge[color=red, style=dashed](5)(6)
+				}
+				\only<1>{
+					\Edge[color=red](1)(3)
+				}
+				\only<1>{
+					\Edge[color=red, style=dashed](4)(6)
+				}
+				\only<1>{
+					\Edge[color=red](3)(6)
+				}
+
+				%graph edges
+				\tikzstyle{EdgeStyle}=[color=black]
 				\only<2>{
 					\Edge[Direct](1)(2)
-				}
-
-				\only<1>{
-					\Edge(2)(3)
 				}
 				\only<2>{
 					\Edge[Direct](2)(3)
 				}
-
-				\only<1>{
-					\Edge(3)(4)
-				}
 				\only<2>{
 					\Edge[Direct](3)(4)
-				}
-
-				\only<1>{
-					\Edge(4)(5)
 				}
 				\only<2>{
 					\Edge[Direct](4)(5)
 				}
-
-				\only<1>{
-					\Edge(5)(6)
-				}
 				\only<2>{
 					\Edge[Direct](5)(6)
-				}
-
-				\only<1>{
-					\Edge(1)(3)
 				}
 				\only<2>{
 					\Edge[Direct](1)(3)
 				}
-
-				\only<1>{
-					\Edge(4)(6)
-				}
 				\only<2>{
 					\Edge[Direct](4)(6)
 				}
-
-				\only<1>{
-					\Edge(3)(6)
-				}
 				\only<2>{
+					\Edge[Direct](3)(6)
+				}
+
+				%directed graph edges
+				\tikzstyle{EdgeStyle}=[color=black, ->]
+				\only<3>{
+					\Edge[Direct](1)(2)
+				}
+				\only<3>{
+					\Edge[Direct](3)(2)
+				}
+				\only<3>{
+					\Edge[Direct](3)(4)
+				}
+				\only<3>{
+					\Edge[Direct](4)(5)
+				}
+				\only<3>{
+					\Edge[Direct](6)(5)
+				}
+				\only<3>{
+					\Edge[Direct](3)(1)
+				}
+				\only<3>{
+					\Edge[Direct](6)(4)
+				}
+				\only<3>{
 					\Edge[Direct](3)(6)
 				}
 
