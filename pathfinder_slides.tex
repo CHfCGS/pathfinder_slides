@@ -361,32 +361,12 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\begin{itemize}
-			\item<2-> %Every edge $e$ has a list of trajectories going over it.
-			      associate trajectory with all its edges
+			\item<2->associate trajectory with all its edges
 			\item<4-> shortest path representation reduces associations
 		\end{itemize}
 	\end{minipage}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Algorithm Overview}
-	\begin{algorithm}[H]
-		\renewcommand{\thealgorithm}{}
-		{\small
-			\caption{Spatial \pathfinder Algorithm}
-			\begin{algorithmic}[1]
-				\Procedure{PathfinderQuery}{$Q$} \pause
-				\State $E_O \gets \Call{\findEdgeCandidates}{Q}$ \label{line:edge_revrieval} \pause
-				\State $E_r \gets \Call{\refineEdgeCandidates}{Q, E_O}$ \pause
-				\State \Return $\Call{\getAssociatedTrajectories}{E_r}$
-				\EndProcedure
-			\end{algorithmic}
-			\label{alg:spatial_pathfinder}
-		}
-	\end{algorithm}
-\end{frame}
-
-%\subsection{\refineEdgeCandidates}
 \begin{frame}
 	\frametitle{False positives}
 	\framesubtitle{Example}
