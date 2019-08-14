@@ -561,13 +561,38 @@ dvipsnames,
 					\Edge[Direct](3)(6)
 				}
 
-				\node at (0,-3) (1) {};
-				\node at (2,-3) (2) {};
-				\node at (3,-3) (3) {};
-				\interval{1}{2}
-				\interval{2}{3}
-				\interval{3}{1}
+				%intervals
 
+				%on the same position as vertices above (could be more elegant)
+				\node at (0,1) (1n) {};
+				\node at (2,-1) (2n) {};
+				\node at (3,3) (3n) {};
+				\node at (4,1) (4n) {};
+				\node at (5,0) (5n) {};
+				\node at (6,2) (6n) {};
+
+				%lower row
+				\node at (0,-5) (1l) {};
+				\node at (2,-5) (2l) {};
+				\node at (4,-5) (4l) {};
+				\node at (5,-5) (5l) {};
+
+				\interval{1l}{1l}
+				\interval{2l}{2l}
+				\interval{4l}{4l}
+				\interval{5l}{5l}
+
+				%mid row
+				\node at (4,-4) (4m) {};
+				\node at (6,-4) (6m) {};
+
+				\interval{4m}{6m} %6
+
+				%upper row
+				\node at (0,-3) (1u) {};
+				\node at (6,-3) (6u) {};
+
+				\interval{1u}{6u} %3
 
 			\end{tikzpicture}
 		}
