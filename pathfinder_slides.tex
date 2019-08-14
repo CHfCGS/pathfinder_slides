@@ -241,6 +241,27 @@ dvipsnames,
 \section{Retrieval}
 
 \begin{frame}
+	\frametitle{Retrieval Overview}
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\includegraphics<1-2,5>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_4.png}
+		\includegraphics<3-4>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_3.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\begin{itemize}
+			\item<2-> Naive way: Check all trajectories\pause
+			\item<3-> Inverted Index:
+			      \begin{enumerate}
+				      \item<4-> Collect edges within rectangle \pause
+				      \item<5-> Report all associated trajectories \pause
+			      \end{enumerate}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Inverted Index}
 	\framesubtitle{Edge Association}
 	\begin{minipage}[t]{0.45\textwidth}
