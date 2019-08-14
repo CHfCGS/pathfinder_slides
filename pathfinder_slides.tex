@@ -659,15 +659,22 @@ dvipsnames,
 
 \begin{frame}
 	\frametitle{Time queries}
-	\begin{itemize}
-
-		\item	Two types of time queries: \pause
-		      \begin{itemize}
-			      \item Time interval \pause
-			      \item Time slice for periodic intervals
-		      \end{itemize}
-		\item interval trees at edges
-	\end{itemize}
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\begin{itemize}
+			\item<1->	Two types of time queries:
+			      \begin{itemize}
+				      \item<2-> Time interval
+				      \item<3-> Time slice for periodic intervals, e.g. friday
+			      \end{itemize}
+			\item<5-> interval trees at edges
+		\end{itemize}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\includegraphics<4->[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/friday/saarland_real_data_friday_gimped.png}
+	\end{minipage}
 \end{frame}
 
 \section{Experiments}
