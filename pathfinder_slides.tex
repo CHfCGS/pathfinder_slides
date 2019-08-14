@@ -539,26 +539,39 @@ dvipsnames,
 					\Edge(3)(6)
 				}
 
-				%ignore some edges
+				%directed edges
 				\tikzstyle{EdgeStyle}=[color=black, ->]
 				\only<3>{
-					\Edge[style=dashed](1)(2)
-					\Edge[](3)(2)
-					\Edge[style=dashed](3)(4)
-					\Edge[style=dashed](4)(5)
-					\Edge[](6)(5)
-					\Edge[](3)(1)
-					\Edge[](6)(4)
-					\Edge[](3)(6)
+					\Edge[Direct](1)(2)
+					\Edge[Direct](3)(2)
+					\Edge[Direct](3)(4)
+					\Edge[Direct](4)(5)
+					\Edge[Direct](6)(5)
+					\Edge[Direct](3)(1)
+					\Edge[Direct](6)(4)
+					\Edge[Direct](3)(6)
+				}
+
+				%ignore some edges
+				\tikzstyle{EdgeStyle}=[color=black, ->]
+				\only<4>{
+					\Edge[Direct, style=dashed](1)(2)
+					\Edge[Direct](3)(2)
+					\Edge[Direct, style=dashed](3)(4)
+					\Edge[Direct, style=dashed](4)(5)
+					\Edge[Direct](6)(5)
+					\Edge[Direct](3)(1)
+					\Edge[Direct](6)(4)
+					\Edge[Direct](3)(6)
 				}
 
 				%tree
-				\only<4->{
-					\Edge[](3)(2)
-					\Edge[](6)(5)
-					\Edge[](3)(1)
-					\Edge[](6)(4)
-					\Edge[](3)(6)
+				\only<5->{
+					\Edge[Direct](3)(2)
+					\Edge[Direct](6)(5)
+					\Edge[Direct](3)(1)
+					\Edge[Direct](6)(4)
+					\Edge[Direct](3)(6)
 				}
 
 				%intervals
@@ -577,14 +590,14 @@ dvipsnames,
 				\node at (4,-5) (4l) {};
 				\node at (5,-5) (5l) {};
 
-				\only<5>{
+				\only<6>{
 					\draw[dotted](1n) to (1l);
 					\draw[dotted](2n) to (2l);
 					\draw[dotted](4n) to (4l);
 					\draw[dotted](5n) to (5l);
 				}
 
-				\only<5->{
+				\only<6->{
 					\interval{1l}{1l}
 					\interval{2l}{2l}
 					\interval{4l}{4l}
@@ -595,12 +608,12 @@ dvipsnames,
 				\node at (4,-4) (4m) {};
 				\node at (6,-4) (6m) {};
 
-				\only<6>{
+				\only<7>{
 					\draw[dotted](4n) to (4m);
 					\draw[dotted](6n) to (6m);
 				}
 
-				\only<6->{
+				\only<7->{
 					\interval{4m}{6m} %6
 				}
 
@@ -608,12 +621,12 @@ dvipsnames,
 				\node at (0,-3) (1u) {};
 				\node at (6,-3) (6u) {};
 
-				\only<7>{
+				\only<8>{
 					\draw[dotted](1n) to (1u);
 					\draw[dotted](6n) to (6u);
 				}
 
-				\only<7->{
+				\only<8->{
 					\interval{1u}{6u} %3
 				}
 
@@ -624,8 +637,10 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\begin{enumerate}
-			\item downward edges define a DAG
-			\item identify a tree
+			\item<3-> downward edges define a DAG
+			\item<4-> identify a tree
+			\item<6-> build R-Tree
+			\item<9-> efficient report of edges in query rectangle
 		\end{enumerate}
 	\end{minipage}
 \end{frame}
