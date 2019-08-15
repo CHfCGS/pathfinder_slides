@@ -79,13 +79,14 @@ dvipsnames,
 		\vspace{0pt}
 		\begin{itemize}
 			\item<1->plenty of devices capable of tracking positions
-			\item<2->$\Rightarrow$ huge and growing volume of trajectory data
-			\item<3-> applications:
+			\item<2-> huge and growing volume of trajectory data
+			\item<3-> often no efficient retrieval
+			\item<4-> applications:
 			      \begin{itemize}
-				      \item<4-> analysis of commute patterns
-				      \item<5-> traffic flow estimation/prediction
-				      \item<6-> traffic infrastructure planning
-				      \item<7-> proposal of hiking routes
+				      \item<5-> analysis of commute patterns
+				      \item<6-> traffic flow estimation/prediction
+				      \item<7-> traffic infrastructure planning
+				      \item<8-> proposal of hiking routes
 			      \end{itemize}
 
 		\end{itemize}
@@ -121,10 +122,10 @@ dvipsnames,
 \begin{frame}
 	\frametitle{Contribution}
 	\begin{itemize}
-		\item novel data structure \pathfinder
+		\item novel data structure \pathfinder \pause
 		      \begin{itemize}
-			      \item compressing and storing large-scale trajectory data (hundreds of millions of trajectories)
-			      \item efficient retrieval from this data (~5 ms per reported trajectory)
+			      \item compressing and storing large-scale trajectory data (hundreds of millions of trajectories) \pause
+			      \item efficient retrieval from this data (~5 ns per reported trajectory)
 		      \end{itemize}
 	\end{itemize}
 \end{frame}
@@ -617,7 +618,7 @@ dvipsnames,
 				      \item<3-> \textcolor{brown}{brown} path $\Rightarrow$ Accept candidate
 				      \item<4-> \textcolor{ForestGreen}{green} path $\Rightarrow$ Reject candidate
 			      \end{enumerate}
-			\item<5-> no further inspection of non-intersecting edges necessary
+			\item<5-> no further inspection of non-intersecting path box necessary
 		\end{itemize}
 	\end{minipage}
 \end{frame}
@@ -811,7 +812,7 @@ dvipsnames,
 \begin{frame}
 	\frametitle{Optimization}
 	\begin{itemize}
-		\item Efficient parallelization possible by identifying a tree within the DAG \pause
+		\item Efficient parallelization possible (almost linear speed up) \pause
 		\item Store trajectory data on disk \pause
 		      \begin{itemize}
 			      \item $\Rightarrow$ RAM is no limit for scaling \pause
@@ -850,7 +851,7 @@ dvipsnames,
 
 	Experiments were conducted on two machines: \pause
 	\begin{enumerate}
-		\item Ryzen Threadripper 16-Core), 128 GB RAM
+		\item Ryzen Threadripper 16-Core), 128 GB RAM \pause
 		      %AMD Ryzen Threadripper 1950X (16-Core), 128 GB RAM and a 512GB Toshiba OCZ RD400 NVMe SSD (\SI{2.6}{GB}/s) \pause %3.4 GHz turbo: 4GHz
 		\item Intel Xeon (24-Core), 768 GB RAM
 		      %Intel Xeon(R) CPU E5-2650 v4 (24-Core), 768 GB RAM %turbo 2.9GHz
@@ -865,12 +866,12 @@ dvipsnames,
 			\caption{Characteristics of network graphs, based on Open Street Map(OSM)}
 			\begin{tabular}{|l|rr|}
 				\hline
-				                           & Germany  & Europe
+				                    & Germany  & Europe
 				\\ \hline
-				\# nodes                   & $57.4M$  & $437.4M$  \\
-				\# edges (original)        & $121.7M$ & $902.1M$  \\
-				\# edges (CH)              & $248.4M$ & $1694.2M$ \\
-				CH construction time (min) & 16       & 125       \\
+				\# nodes            & $57.4M$  & $437.4M$  \\
+				\# edges (original) & $121.7M$ & $902.1M$  \\
+				\# edges (CH)       & $248.4M$ & $1694.2M$ \\
+				%				CH construction time (min) & 16       & 125       \\
 				\hline
 			\end{tabular}
 		}
@@ -923,9 +924,9 @@ dvipsnames,
 	\framesubtitle{Retrieval}
 	\begin{table}
 		\begin{itemize}
-			\item 10 million synthesized trajectories with length of 15 km within europe
-			\item 24 threads
-			\item averaged over 100 queries
+			\item 10 million synthesized trajectories with length of 15 km within europe \pause
+			\item 24 threads \pause
+			\item averaged over 100 queries \pause
 		\end{itemize}
 
 		\centering
@@ -935,7 +936,7 @@ dvipsnames,
 			\hline
 			query time                                     & \SI{270}{\milli \second} & \SI{93}{\milli \second} & \SI{41}{\milli \second} \\
 			output size                                    & 57K                      & 18K                     & 7K                      \\
-			$\frac{\text{query time}}{\text{output size}}$ & \SI{4.7}{\nano \second}  & \SI{5.9}{\nano \second} & \SI{4.7}{\nano \second} \\
+			$\frac{\text{query time}}{\text{output size}}$ & \SI{4.7}{\nano \second}  & \SI{5.2}{\nano \second} & \SI{5.9}{\nano \second} \\
 			\hline
 		\end{tabular}
 	\end{table}
@@ -959,11 +960,7 @@ dvipsnames,
 	\frametitle{Future Work}
 	\begin{itemize}
 		\item complete online application service \pause
-		\item dynamic updates of
-		      \begin{itemize}
-			      \item trajectories data
-			      \item road network
-		      \end{itemize}
+		\item dynamic updates of trajectories data
 	\end{itemize}
 \end{frame}
 
