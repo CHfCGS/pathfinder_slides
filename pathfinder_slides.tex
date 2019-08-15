@@ -540,6 +540,72 @@ dvipsnames,
 			\Edge(10)(target)
 			}
 		\end{tikzpicture}
+
+		\begin{tikzpicture}
+			\only<5>{
+				%\SetGraphUnit{1}
+
+				%\GraphInit[vstyle=Classic]
+				\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+			}
+
+			%edge1
+			\tikzstyle{EdgeStyle}=[->, color=black]
+			\Vertex[x=1,y=2]{source}
+			\Vertex[x=-0.5,y=2.75]{target}
+
+			\Edge[label=$e_1$,position=above](source)(target) {e1}
+
+
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
+			}
+
+			%pathBox1
+			\Vertex[x=-0.5,y=2]{6}
+			\Vertex[x=1,y=2.75]{8}
+
+			\tikzstyle{EdgeStyle}=[color=red]
+			\Edge(source)(6)
+			\Edge(6)(target)
+			\Edge(target)(8)
+			\Edge(8)(source)
+
+			%edge2
+			\tikzstyle{EdgeStyle}=[->, color=black]
+			\Vertex[x=1.5,y=2]{source}
+			\Vertex[x=2.5,y=2.5]{target}
+
+			\Edge[label=$e_2$,position=above](source)(target) {e2}
+
+			%pathBox2
+			\Vertex[x=1.5,y=2.5]{10}
+			\Vertex[x=2.5,y=2]{12}
+
+			\tikzstyle{EdgeStyle}=[color=red]
+			\Edge(source)(10)
+			\Edge(10)(target)
+			\Edge(target)(12)
+			\Edge(12)(source)
+
+			%queryBox
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
+			}
+
+			\Vertex[x=1.25,y=1.75]{1}
+			\Vertex[x=3,y=1.75]{2}
+			\Vertex[x=3,y=2.75]{3}
+			\Vertex[x=1.25,y=2.75]{4}
+
+			\tikzstyle{EdgeStyle}=[color=blue]
+			\Edge(1)(2)
+			\Edge[label=Q,position=right, fontcolor=blue](2)(3)
+			\Edge(3)(4)
+			\Edge(4)(1)
+			}
+		\end{tikzpicture}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\textwidth}
@@ -551,6 +617,7 @@ dvipsnames,
 				      \item<3-> \textcolor{brown}{brown} path $\Rightarrow$ Accept candidate
 				      \item<4-> \textcolor{ForestGreen}{green} path $\Rightarrow$ Reject candidate
 			      \end{enumerate}
+			\item<5-> no further inspection of non-intersecting edges necessary
 		\end{itemize}
 	\end{minipage}
 \end{frame}
