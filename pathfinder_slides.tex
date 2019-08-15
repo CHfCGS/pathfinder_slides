@@ -381,25 +381,94 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\begin{itemize}
-			\item<2->associate trajectory with all its edges
+			\item<2->associate trajectory with all its edges (pre-processing)
 			\item<4-> shortest path representation reduces associations
 		\end{itemize}
 	\end{minipage}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Collect edges}
-	\framesubtitle{Path box}
-	\emph{Path box} $PB(e)$: Bounding box for the path that an edge $e$ represents:
+	\frametitle{Collect edge candidates}
 
-	\TODO{make clear why we need path box, draw rectangle here}
-	\includegraphics[width=.45\columnwidth]{images/simplePathBox} \pause
-	\includegraphics[width=.45\columnwidth]{images/pathBox}
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+
+		\begin{tikzpicture}
+
+			%\SetGraphUnit{1}
+
+			%\GraphInit[vstyle=Classic]
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+			}
+
+			%edge
+			\tikzstyle{EdgeStyle}=[->, color=black]
+			\Vertex[x=-0.5,y=2]{source}
+			\Vertex[x=1,y=3.25]{target}
+
+			\Edge[label=e,position=above](source)(target) {e}
+
+
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
+			}
+
+			\only<3-4>{
+			%pathBox
+			\Vertex[x=1.5,y=2]{6}
+			\Vertex[x=1.5,y=3.25]{7}
+			\Vertex[x=-0.5,y=3.25]{8}
+
+			\tikzstyle{EdgeStyle}=[color=red]
+			\Edge(source)(6)
+			\Edge(6)(7)
+			\Edge(7)(8)
+			\Edge(8)(source)
+			}
+
+			%queryBox
+			\Vertex[x=1.25,y=1.75]{1}
+			\Vertex[x=3,y=1.75]{2}
+			\Vertex[x=3,y=2.75]{3}
+			\Vertex[x=1.25,y=2.75]{4}
+
+			\tikzstyle{EdgeStyle}=[color=blue]
+			\Edge(1)(2)
+			\Edge[label=Q,position=right, fontcolor=blue](2)(3)
+			\Edge(3)(4)
+			\Edge(4)(1)
+
+			%unpacked
+			\tikzset{VertexStyle/.style =
+					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
+			}
+
+			%possibility2
+			\only<2-3>{
+			\Vertex[x=1.5,y=2.5]{10}
+
+			\tikzstyle{EdgeStyle}=[->, color=brown, dashed]
+			\Edge(source)(10)
+			\Edge(10)(target)
+			}
+
+		\end{tikzpicture}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\begin{itemize}
+			\item<1-> Naive: Check intersection of edge with query rectangle
+			\item<2-> But $e$ can represent an intersecting path!
+			\item<3-> $\Rightarrow$ create path box($e$) in preprocessing
+			\item<4-> $\Rightarrow$ fast check if $e$ is a candidate for intersection
+		\end{itemize}
+	\end{minipage}
 \end{frame}
 
 \begin{frame}
-	\frametitle{False positives}
-	\framesubtitle{Example}
+	\frametitle{Refine edge candidates}
 
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
