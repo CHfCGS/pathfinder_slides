@@ -485,7 +485,7 @@ dvipsnames,
 			%edge
 			\tikzstyle{EdgeStyle}=[->, color=black]
 			\Vertex[x=-0.5,y=2]{source}
-			\Vertex[x=2,y=3.25]{target}
+			\Vertex[x=1,y=3.25]{target}
 
 			\Edge[label=e,position=above](source)(target) {e}
 
@@ -494,17 +494,16 @@ dvipsnames,
 					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
 			}
 
-			\only<2>{
-			%edgeBox
-			\Vertex[x=2,y=2]{6}
+			%pathBox
+			\Vertex[x=1.5,y=2]{6}
+			\Vertex[x=1.5,y=3.25]{7}
 			\Vertex[x=-0.5,y=3.25]{8}
 
 			\tikzstyle{EdgeStyle}=[color=red]
 			\Edge(source)(6)
-			\Edge(6)(target)
-			\Edge(target)(8)
+			\Edge(6)(7)
+			\Edge(7)(8)
 			\Edge(8)(source)
-			}
 
 			%queryBox
 			\Vertex[x=1.25,y=1.75]{1}
@@ -523,16 +522,16 @@ dvipsnames,
 					{shape=circle, fill=black, minimum size = 4pt,inner sep=0pt}
 			}
 
-			\only<6>{
+			\only<4>{
 			%possibility1
-			\Vertex[x=0.5,y=3]{9}
+			\Vertex[x=1.5,y=3]{9}
 
 			\tikzstyle{EdgeStyle}=[->, color=ForestGreen, dashed]
 			\Edge(source)(9)
 			\Edge(9)(target)
 			}
 
-			\only<7->{
+			\only<3>{
 			%possibility2
 			\Vertex[x=1.5,y=2.5]{10}
 
@@ -546,15 +545,11 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\begin{itemize}
-			\item<2-> $PB(e) \cap Q \neq \emptyset \Rightarrow e$ is candidate
-			\item<3-> Check for actual intersection, is $e$ a shortcut?
+			\item<1-> $PB(e) \cap Q \neq \emptyset \Rightarrow e$ is candidate
+			\item<2-> Which path does it bridge?
 			      \begin{enumerate}
-				      \item<4-> yes $\Rightarrow$ false positive
-				      \item<5-> no $\Rightarrow$ Which path does it bridge?
-				            \begin{enumerate}
-					            \item<6-> \textcolor{ForestGreen}{green} path $\Rightarrow$ false positive
-					            \item<7-> \textcolor{brown}{brown} path $\Rightarrow$ true positive
-				            \end{enumerate}
+				      \item<3-> \textcolor{brown}{brown} path $\Rightarrow$ Accept candidate
+				      \item<4-> \textcolor{ForestGreen}{green} path $\Rightarrow$ Reject candidate
 			      \end{enumerate}
 		\end{itemize}
 	\end{minipage}
