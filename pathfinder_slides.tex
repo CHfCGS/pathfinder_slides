@@ -825,11 +825,13 @@ dvipsnames,
 \begin{frame}
 	\frametitle{Optimization}
 	\begin{itemize}
-		\item Efficient parallelization possible (almost linear speed up) \pause
-		\item Store trajectory data on disk \pause
+		\item Efficient parallelization (almost linear speed up) \pause
+		\item Trajectory data on external memory \pause
 		      \begin{itemize}
-			      \item $\Rightarrow$ RAM is no limit for scaling \pause
-			      \item Experiments: Slower by only a factor of 6.
+			      \item retrieval only operates on CH-based index structure until almost
+			            the very end (inverted index) \pause
+			      \item if graph can be held in RAM, the trajectory data can be stored on SSD and be of almost arbitrary size \pause
+			      \item SSD Experiments: Slower by only a factor of 6.
 		      \end{itemize}
 	\end{itemize}
 \end{frame}
@@ -864,7 +866,7 @@ dvipsnames,
 
 	Experiments were conducted on two machines: \pause
 	\begin{enumerate}
-		\item Ryzen Threadripper 16-Core), 128 GB RAM \pause
+		\item Ryzen Threadripper 16-Core), 128 GB RAM and SSD \pause
 		      %AMD Ryzen Threadripper 1950X (16-Core), 128 GB RAM and a 512GB Toshiba OCZ RD400 NVMe SSD (\SI{2.6}{GB}/s) \pause %3.4 GHz turbo: 4GHz
 		\item Intel Xeon (24-Core), 768 GB RAM
 		      %Intel Xeon(R) CPU E5-2650 v4 (24-Core), 768 GB RAM %turbo 2.9GHz
