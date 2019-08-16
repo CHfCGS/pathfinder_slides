@@ -157,9 +157,10 @@ dvipsnames,
 	\framesubtitle{Construction}
 	\begin{itemize}[<+(1)->]
 		\item remove nodes one-by-one
-		\item (order determined by heuristic or even random)
+		\item order can be arbitrary and defines levels
 		\item add \emph{shortcut} edges to retain shortest paths
 		\item original graph + all \emph{shortcut} edges ever created = CH
+		\item construction time is typically several minutes and #shortcuts < #original edges
 	\end{itemize}
 \end{frame}
 
