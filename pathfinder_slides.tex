@@ -823,6 +823,27 @@ dvipsnames,
 \end{frame}
 
 \begin{frame}
+	\frametitle{Extensions}
+	\framesubtitle{Optimization: CH as R-Tree - Retrieval overview}
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+
+		\includegraphics<2>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_3.png}
+		\includegraphics<3>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_edgesInRectangle.png}
+		\includegraphics<4>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_4.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\textwidth}
+		\vspace{0pt}
+		\begin{enumerate}
+			\item<2-> use CH-R-Tree to collect all edges whose represented path could potentially intersect query rectangle
+			\item<3-> inspect candidate edges
+			\item<4-> return trajetories with inverted index
+		\end{enumerate}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Optimization}
 	\begin{itemize}
 		\item Efficient parallelization (almost linear speed up) \pause
