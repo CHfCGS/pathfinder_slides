@@ -129,7 +129,7 @@ dvipsnames,
 \begin{frame}
 	\frametitle{Contribution}
 	\begin{itemize}
-		\item novel data structure \pathfinder \pause
+		\item novel framework \pathfinder \pause
 		      \begin{itemize}
 			      \item compressing and storing large-scale trajectory data \pause
 
@@ -147,7 +147,7 @@ dvipsnames,
 \begin{frame}{Contraction Hierarchies}
 	\begin{itemize}[<+(1)->]
 		\item basis data structure of \pathfinder
-		\item data structure to speed up shortest-path queries (ms $\rightarrow$ s) \cite{Geisberger:ch}
+		\item data structure to speed up shortest-path queries (s $\rightarrow$ ms) \cite{Geisberger:ch}
 		\item augmentation of the original graph $G$
 	\end{itemize}
 \end{frame}
@@ -816,7 +816,6 @@ dvipsnames,
 			\item<3-> downward edges define a DAG
 			\item<4-> identify a sub-tree
 			\item<6-> build R-Tree
-			\item<9-> efficient report of edges in query rectangle
 		\end{enumerate}
 	\end{minipage}
 \end{frame}
@@ -826,9 +825,8 @@ dvipsnames,
 	\framesubtitle{Optimization: CH as R-Tree - Retrieval overview}
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
-
-		\includegraphics<2>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_3.png}
-		\includegraphics<3>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_edgesInRectangle.png}
+		\includegraphics<1>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_3.png}
+		\includegraphics<2-3>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_edgesInRectangle.png}
 		\includegraphics<4>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/saarland_real_data_4.png}
 	\end{minipage}
 	\hfill
@@ -866,13 +864,13 @@ dvipsnames,
 				      \item<2-> Time interval
 				      \item<3-> Time slice for periodic intervals, e.g. friday
 			      \end{itemize}
-			\item<5-> interval trees at edges
+			\item<4-> interval trees at edges
 		\end{itemize}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
-		\includegraphics<4->[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/friday/saarland_real_data_friday_gimped.png}
+		\includegraphics<3->[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/saarland_real_data/friday/saarland_real_data_friday_gimped.png}
 	\end{minipage}
 \end{frame}
 
@@ -984,6 +982,7 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\resizebox{\textwidth}{!}{
+			\TODO{fix}
 			\includegraphics<3>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/quadratic_box/quadratic_box1.png}
 			\includegraphics<4>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/quadratic_box/quadratic_box2.png}
 		}
@@ -1008,10 +1007,11 @@ dvipsnames,
 	\frametitle{Future Work}
 	\begin{itemize}
 		\item complete online application service \pause
-		\item dynamic updates of trajectories data
+		\item dynamic updates of trajectory data
 	\end{itemize}
 \end{frame}
 
+\TODO {thanks for attention}
 \nobibliography{vldb}  % vldb_sample.bib is the name of the Bibliography in this case
 
 % etc
