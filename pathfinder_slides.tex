@@ -26,6 +26,9 @@ dvipsnames,
 \usepackage{siunitx}
 \usepackage{diagbox}
 \usepackage{tikz-network}
+\usepackage{bibentry}
+
+\bibliographystyle{apalike}
 
 % add the following two lines to your document to get bigger arrows
 \usetikzlibrary{arrows.meta}
@@ -68,6 +71,7 @@ dvipsnames,
 
 \begin{document}
 \frame{\titlepage}
+\nobibliography{vldb}  % vldb_sample.bib is the name of the Bibliography in this case
 
 \section{Motivation}
 \begin{frame}
@@ -139,8 +143,8 @@ dvipsnames,
 
 \begin{frame}{Contraction Hierarchies}
 	\begin{itemize}[<+(1)->]
-		\item basis for \pathfinder
-		\item data structure to speed up shortest-path queries
+		\item basis data structure of \pathfinder
+		\item data structure to speed up shortest-path queries \cite{Geisberger:ch}
 		\item augmentation of the original graph $G$ with shortcuts and levels
 	\end{itemize}
 \end{frame}
@@ -967,6 +971,7 @@ dvipsnames,
 		\item dynamic updates of trajectories data
 	\end{itemize}
 \end{frame}
+
 
 % etc
 \end{document}
