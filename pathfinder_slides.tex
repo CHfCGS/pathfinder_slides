@@ -38,6 +38,8 @@ dvipsnames,
 \newcommand{\refineEdgeCandidates}{RefineEdgeCandidates\xspace}
 \newcommand{\getAssociatedTrajectories}{GetAssociatedTrajectories\xspace}
 
+\newcommand{\chrep}{CH-representation\xspace}
+
 \newcommand{\traj}[2]{\mathcal{T}_{\text{#1},\text{#2}}}
 
 \title[Pathfinder] % (optional, only for long titles)
@@ -163,7 +165,7 @@ dvipsnames,
 
 \begin{frame}
 	\frametitle{Compression}
-	\framesubtitle{Shortcut representation}
+	\framesubtitle{\chrep}
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\resizebox{\textwidth}{!}{
@@ -383,7 +385,7 @@ dvipsnames,
 		\vspace{0pt}
 		\begin{itemize}
 			\item<2->associate trajectory with all its edges (pre-processing)
-			\item<4-> shortest path representation reduces associations
+			\item<4->\chrep reduces associations
 		\end{itemize}
 	\end{minipage}
 \end{frame}
@@ -949,7 +951,7 @@ dvipsnames,
 		\item framework for efficient storage and retrieval of trajectories \pause
 		\item utilizes a contraction hierarchy in several ways: \pause
 		      \begin{enumerate}
-			      \item shortcut representation for compression \pause
+			      \item \chrep for compression \pause
 			      \item as R-Tree
 		      \end{enumerate}
 	\end{itemize}
