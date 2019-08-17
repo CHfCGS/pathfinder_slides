@@ -961,30 +961,31 @@ dvipsnames,
 		\vspace{0pt}
 		\begin{table}
 			\begin{itemize}
-				\item 10 million synthesized trajectories with length of 15 km within europe \pause
-				\item 24 threads \pause
-				\item averaged over 100 quadratic queries \pause
+				\item<1-> 10 million synthesized trajectories with length of 15 km within europe
+				\item<2-> 24 threads
+				\item<3-> averaged over 100 quadratic queries
 			\end{itemize}
 
 			\centering
-			\begin{tabular}{|r||c|c|c|}
-				\hline
-				rectangle size                                 & 1/64                     & 1/256                   &
-				1/1024                                                                                                                        \\
-				(w.r.t. to europe)                             &                          &                         &                         \\
-				\hline
-				query time                                     & \SI{270}{\milli \second} & \SI{93}{\milli \second} & \SI{41}{\milli \second} \\
-				output size                                    & 57K                      & 18K                     & 7K                      \\
-				$\frac{\text{query time}}{\text{output size}}$ & \SI{4.7}{\nano \second}  & \SI{5.2}{\nano \second} & \SI{5.9}{\nano \second} \\
-				\hline
-			\end{tabular}
+			\only<4->{
+				\begin{tabular}{|r||c|c|c|}
+					\hline
+					rectangle size                                 & 1/64                     & 1/256                   &
+					1/1024                                                                                                                        \\
+					(w.r.t. to europe)                             &                          &                         &                         \\
+					\hline
+					query time                                     & \SI{270}{\milli \second} & \SI{93}{\milli \second} & \SI{41}{\milli \second} \\
+					output size                                    & 57K                      & 18K                     & 7K                      \\
+					$\frac{\text{query time}}{\text{output size}}$ & \SI{4.7}{\nano \second}  & \SI{5.2}{\nano \second} & \SI{5.9}{\nano \second} \\
+					\hline
+				\end{tabular}
+			}
 		\end{table}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\resizebox{\textwidth}{!}{
-			\TODO{fix}
 			\includegraphics<3>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/quadratic_box/quadratic_box1.png}
 			\includegraphics<4>[keepaspectratio,height=1.2\textheight,width=1.2\textwidth]{graphics/quadratic_box/quadratic_box2.png}
 		}
