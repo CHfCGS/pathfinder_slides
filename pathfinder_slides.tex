@@ -429,7 +429,7 @@ dvipsnames,
 					{shape=circle, fill=black, minimum size = 0pt,inner sep=0pt}
 			}
 
-			\only<3-4>{
+			\only<3->{
 			%pathBox
 			\Vertex[x=1.5,y=2]{6}
 			\Vertex[x=1.5,y=3.25]{7}
@@ -460,7 +460,7 @@ dvipsnames,
 			}
 
 			%possibility2
-			\only<2-3>{
+			\only<2-4>{
 			\Vertex[x=1.5,y=2.5]{10}
 
 			\tikzstyle{EdgeStyle}=[->, color=brown, dashed]
@@ -474,10 +474,14 @@ dvipsnames,
 	\begin{minipage}[t]{0.45\textwidth}
 		\vspace{0pt}
 		\begin{itemize}
-			\item<1-> Naive: Check intersection of edge with query rectangle
-			\item<2-> But $e$ can represent an intersecting path!
-			\item<3-> $\Rightarrow$ create path box($e$) in preprocessing
-			\item<4-> $\Rightarrow$ fast check if $e$ is a candidate for intersection
+			\item Naive: Check intersection of edge with query rectangle \pause
+			\item But $e$ could represent an intersecting path! \pause
+			\item solution: create path box($e$) in preprocessing \pause
+
+			(axis aligned bounding box of nodes on path represented by $e$) \pause
+			\item $\Rightarrow$ fast check if $e$ is a candidate for intersection \pause
+
+			 (complete recall)
 		\end{itemize}
 	\end{minipage}
 \end{frame}
