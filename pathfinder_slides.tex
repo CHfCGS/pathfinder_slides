@@ -480,7 +480,7 @@ dvipsnames,
 			(axis aligned bounding box of nodes on path represented by $e$) \pause
 			\item $\Rightarrow$ fast check if $e$ is a candidate for intersection \pause
 
-			 (complete recall)
+			 (complete recall of edges whose represented path could potentially intersect query rectangle)
 		\end{itemize}
 	\end{minipage}
 \end{frame}
@@ -856,11 +856,11 @@ dvipsnames,
 	\frametitle{Optimization}
 	\begin{itemize}
 		\item Efficient parallelization (almost linear speed up) \pause
-		\item Trajectory data on external memory \pause
+		\item Variant: Trajectory data on external memory \pause
 		      \begin{itemize}
 			      \item retrieval only operates on CH-based index structure until almost
 			            the very end (inverted index) \pause
-			      \item if graph can be held in memory, the trajectory data can be stored on SSD and be of almost arbitrary size \pause
+			      \item if graph can be held in memory, the trajectory data can be stored on external memory and be of almost arbitrary size \pause
 			      \item SSD Experiments: Slower than in-memory variant by only a factor of 6.
 		      \end{itemize}
 	\end{itemize}
@@ -923,7 +923,7 @@ dvipsnames,
 	\end{table}
 	\pause
 
-	Previous contributions experimented on smaller graphs with < 1 million nodes.
+	Previous contributions experimented on smaller graphs with $<$ 1 million nodes.
 \end{frame}
 
 \begin{frame}
@@ -1010,7 +1010,7 @@ dvipsnames,
 	\frametitle{Conclusion}
 	\begin{itemize}
 		\item \pathfinder: framework for efficient storage and retrieval of trajectories \pause
-		\item utilizes a contraction hierarchy in several ways: \pause
+		\item utilizes contraction hierarchy in two ways: \pause
 		      \begin{enumerate}
 			      \item \chrep for compression \pause
 			      \item as R-Tree \pause
