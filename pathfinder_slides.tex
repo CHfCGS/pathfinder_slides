@@ -85,13 +85,12 @@ dvipsnames,
 		\begin{itemize}
 			\item<1-> plenty of devices capable of tracking positions
 			\item<2-> huge and growing volume of raw trajectory data
-			\item<3-> often no efficient retrieval
-			\item<4-> applications:
+			\item<3-> applications:
 			      \begin{itemize}
-				      \item<5-> analysis of commute patterns
-				      \item<6-> traffic flow estimation/prediction
-				      \item<7-> traffic infrastructure planning
-				      \item<8-> proposal of hiking routes
+				      \item<4-> analysis of commute patterns
+				      \item<5-> traffic flow estimation/prediction
+				      \item<6-> traffic infrastructure planning
+				      \item<7-> proposal of hiking routes
 			      \end{itemize}
 
 		\end{itemize}
@@ -861,8 +860,8 @@ dvipsnames,
 		      \begin{itemize}
 			      \item retrieval only operates on CH-based index structure until almost
 			            the very end (inverted index) \pause
-			      \item if graph can be held in RAM, the trajectory data can be stored on SSD and be of almost arbitrary size \pause
-			      \item SSD Experiments: Slower by only a factor of 6.
+			      \item if graph can be held in memory, the trajectory data can be stored on SSD and be of almost arbitrary size \pause
+			      \item SSD Experiments: Slower than in-memory variant by only a factor of 6.
 		      \end{itemize}
 	\end{itemize}
 \end{frame}
